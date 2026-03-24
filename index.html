@@ -21,6 +21,50 @@
   --green:#3ecf8e;--red:#f56565;--amber:#f6ad55;--purple:#a78bfa;--teal:#2dd4bf;--pink:#f472b6;
   --radius:12px;--radius-sm:8px;
 }
+
+/* ── Tema 2: Midnight Green ───────────────────────────────── */
+body.tema-green{
+  --bg:#0a0f0d;--bg2:#101a14;--bg3:#162019;--bg4:#1d2a22;
+  --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.13);
+  --text:#e0ede6;--text2:#7a9e88;--text3:#4a6e58;
+  --accent:#3ecf8e;--accent2:#28a870;
+}
+
+/* ── Tema 3: Royal Purple ─────────────────────────────────── */
+body.tema-purple{
+  --bg:#0e0b18;--bg2:#150f22;--bg3:#1c152e;--bg4:#241c3a;
+  --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.15);
+  --text:#ede8f5;--text2:#9b8fc0;--text3:#6a5e8a;
+  --accent:#a78bfa;--accent2:#8b6ef5;
+}
+
+/* ── Tema 4: Sunset (claro) ───────────────────────────────── */
+body.tema-light{
+  --bg:#f4f6fb;--bg2:#ffffff;--bg3:#eef1f8;--bg4:#e4e8f2;
+  --border:rgba(0,0,0,0.08);--border2:rgba(0,0,0,0.14);
+  --text:#1a1f2e;--text2:#5a6480;--text3:#9aa0b8;
+  --accent:#5b8dee;--accent2:#3d6bd4;
+  --green:#28a870;--red:#e53e3e;--amber:#d97706;--purple:#7c3aed;--teal:#0d9488;--pink:#db2777;
+}
+
+/* ── Tema 5: Ember (escuro laranja) ───────────────────────── */
+body.tema-ember{
+  --bg:#110d08;--bg2:#1a1209;--bg3:#22180c;--bg4:#2c1f10;
+  --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.13);
+  --text:#f0e6d8;--text2:#a88060;--text3:#6e5040;
+  --accent:#f6ad55;--accent2:#e8862a;
+}
+
+/* ── Seletor de tema ──────────────────────────────────────── */
+.theme-picker{position:relative;flex-shrink:0}
+.theme-btn{background:var(--bg3);border:1px solid var(--border2);border-radius:20px;color:var(--text2);font-size:12px;padding:.35rem .8rem;cursor:pointer;font-family:'DM Sans',sans-serif;display:flex;align-items:center;gap:5px;transition:all .15s;white-space:nowrap}
+.theme-btn:hover{border-color:var(--accent);color:var(--text)}
+.theme-dropdown{position:absolute;top:calc(100% + 8px);right:0;background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius);padding:.5rem;min-width:170px;z-index:200;display:none;box-shadow:0 8px 32px rgba(0,0,0,0.4)}
+.theme-dropdown.open{display:block}
+.theme-opt{display:flex;align-items:center;gap:10px;padding:.5rem .7rem;border-radius:var(--radius-sm);cursor:pointer;font-size:13px;color:var(--text2);transition:all .12s}
+.theme-opt:hover{background:var(--bg3);color:var(--text)}
+.theme-opt.ativo{color:var(--accent);font-weight:600}
+.theme-dot{width:14px;height:14px;border-radius:50%;flex-shrink:0;border:2px solid rgba(255,255,255,0.15)}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;line-height:1.6}
 .header{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 2rem;position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:1.5rem}
@@ -393,7 +437,28 @@ select option{background:var(--bg3)}
 <header class="header">
   <div class="header-top">
     <div class="brand"><div class="logo">💰</div>Finanças Pessoais</div>
-    <div id="user-bar" style="display:none;flex-shrink:0">
+    <div id="user-bar" style="display:none;flex-shrink:0;align-items:center;gap:8px">
+      <!-- Seletor de tema -->
+      <div class="theme-picker">
+        <button class="theme-btn" onclick="toggleThemeMenu()">🎨 Tema</button>
+        <div class="theme-dropdown" id="theme-dropdown">
+          <div class="theme-opt ativo" onclick="setTema('','Padrão')" id="opt-default">
+            <div class="theme-dot" style="background:#5b8dee"></div> Padrão — Azul
+          </div>
+          <div class="theme-opt" onclick="setTema('tema-green','Green')" id="opt-green">
+            <div class="theme-dot" style="background:#3ecf8e"></div> Midnight Green
+          </div>
+          <div class="theme-opt" onclick="setTema('tema-purple','Purple')" id="opt-purple">
+            <div class="theme-dot" style="background:#a78bfa"></div> Royal Purple
+          </div>
+          <div class="theme-opt" onclick="setTema('tema-light','Light')" id="opt-light">
+            <div class="theme-dot" style="background:#5b8dee;border-color:#aaa"></div> Claro
+          </div>
+          <div class="theme-opt" onclick="setTema('tema-ember','Ember')" id="opt-ember">
+            <div class="theme-dot" style="background:#f6ad55"></div> Ember
+          </div>
+        </div>
+      </div>
       <div class="login-user-bar">
         <span>👤</span>
         <span id="user-email-label" style="max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"></span>
@@ -3156,6 +3221,40 @@ async function init(){
     💾 Salvar dados<span class="save-dot" id="save-dot"></span>
   </button>
 </div>
+
+// ── Seletor de Temas ─────────────────────────────────────────
+const temas = ['','tema-green','tema-purple','tema-light','tema-ember'];
+
+function setTema(classe, nome){
+  temas.forEach(t => document.body.classList.remove(t));
+  if(classe) document.body.classList.add(classe);
+  localStorage.setItem('fin_tema', classe);
+  // Atualizar opções ativas
+  document.querySelectorAll('.theme-opt').forEach(el => el.classList.remove('ativo'));
+  const id = classe ? 'opt-' + classe.replace('tema-','') : 'opt-default';
+  const el = document.getElementById(id);
+  if(el) el.classList.add('ativo');
+  // Fechar menu
+  document.getElementById('theme-dropdown').classList.remove('open');
+}
+
+function toggleThemeMenu(){
+  document.getElementById('theme-dropdown').classList.toggle('open');
+}
+
+// Fechar menu ao clicar fora
+document.addEventListener('click', e => {
+  if(!e.target.closest('.theme-picker')){
+    const dd = document.getElementById('theme-dropdown');
+    if(dd) dd.classList.remove('open');
+  }
+});
+
+// Restaurar tema salvo
+(function(){
+  const t = localStorage.getItem('fin_tema');
+  if(t) setTema(t, t);
+})();
 
 <!-- Firebase (apenas Firestore, sem Authentication) -->
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
