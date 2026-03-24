@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#0d0f14">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Finanças">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <title>Finanças Pessoais</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -3222,5 +3226,10 @@ if(sessionStorage.getItem('fin_auth') === '1'){
 }
 </script>
 
+<script>
+if('serviceWorker' in navigator){
+  navigator.serviceWorker.register('/financas/sw.js');
+}
+</script>
 </body>
 </html>
