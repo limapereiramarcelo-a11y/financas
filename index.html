@@ -3222,6 +3222,8 @@ async function init(){
   </button>
 </div>
 
+
+<script>
 // ── Seletor de Temas ─────────────────────────────────────────
 const temas = ['','tema-green','tema-purple','tema-light','tema-ember'];
 
@@ -3229,12 +3231,10 @@ function setTema(classe, nome){
   temas.forEach(t => document.body.classList.remove(t));
   if(classe) document.body.classList.add(classe);
   localStorage.setItem('fin_tema', classe);
-  // Atualizar opções ativas
   document.querySelectorAll('.theme-opt').forEach(el => el.classList.remove('ativo'));
   const id = classe ? 'opt-' + classe.replace('tema-','') : 'opt-default';
   const el = document.getElementById(id);
   if(el) el.classList.add('ativo');
-  // Fechar menu
   document.getElementById('theme-dropdown').classList.remove('open');
 }
 
@@ -3242,7 +3242,6 @@ function toggleThemeMenu(){
   document.getElementById('theme-dropdown').classList.toggle('open');
 }
 
-// Fechar menu ao clicar fora
 document.addEventListener('click', e => {
   if(!e.target.closest('.theme-picker')){
     const dd = document.getElementById('theme-dropdown');
@@ -3255,6 +3254,7 @@ document.addEventListener('click', e => {
   const t = localStorage.getItem('fin_tema');
   if(t) setTema(t, t);
 })();
+</script>
 
 <!-- Firebase (apenas Firestore, sem Authentication) -->
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
