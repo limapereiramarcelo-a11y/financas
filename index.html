@@ -419,7 +419,65 @@ select option{background:var(--bg3)}
   .desembolso-progress-wrap{padding:7px 1rem}
 }
 
-/* Save button & notification */
+/* ── Tabela despesas mês a mês ─────────────────────────────── */
+.mam-table{border-collapse:collapse;font-size:12px;min-width:100%}
+.mam-table th{padding:6px 10px;border-bottom:2px solid var(--border2);border-right:1px solid var(--border);font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--text3);font-weight:500;white-space:nowrap;background:var(--bg3);position:sticky;top:0}
+.mam-table th:first-child{min-width:200px;left:0;z-index:2;background:var(--bg3);border-right:2px solid var(--border2)}
+.mam-table th.mes-col{text-align:center;min-width:90px}
+.mam-table td{padding:7px 10px;border-bottom:1px solid var(--border);border-right:1px solid var(--border);vertical-align:middle}
+.mam-table td:first-child{font-size:12px;color:var(--text);background:var(--bg2);position:sticky;left:0;border-right:2px solid var(--border2);z-index:1}
+.mam-table td.mam-val{text-align:right;font-family:'DM Mono',monospace;font-size:12px;color:var(--red)}
+.mam-table td.mam-val.zero{color:var(--text3);opacity:.4}
+.mam-table tfoot td{font-weight:700;background:var(--bg4);font-family:'DM Mono',monospace;font-size:12px;border-top:2px solid var(--border2)}
+.mam-table tfoot td:first-child{color:var(--text2);font-family:'DM Sans',sans-serif;font-size:11px}
+.mam-table tfoot td.mam-val{color:var(--red)}
+.mam-table tfoot tr:nth-child(2) td{background:rgba(62,207,142,0.07);border-top:1px solid rgba(62,207,142,0.2);font-weight:600}
+.mam-table tfoot tr:nth-child(2) td:first-child{color:var(--green)}
+.mam-table tfoot tr:nth-child(3) td{background:rgba(246,173,85,0.07);border-top:1px solid rgba(246,173,85,0.2);font-weight:700}
+.mam-table tfoot tr:nth-child(3) td:first-child{color:var(--amber)}
+.mam-table tr:hover td{background:rgba(255,255,255,0.025)}
+.mam-table tr:hover td:first-child{background:var(--bg3)}
+.mam-desp-cat{font-size:10px;color:var(--text3);margin-top:1px}
+.mam-badge{display:inline-flex;align-items:center;padding:1px 5px;border-radius:3px;font-size:9px;font-weight:600;letter-spacing:.3px;margin-left:4px;vertical-align:middle}
+.mam-mes-atual th.mes-col.atual{background:rgba(91,141,238,0.15);color:var(--accent)}
+
+/* ── Tabela planejamento mês a mês (aba Mês a Mês) ─────────── */
+.plan-table{border-collapse:collapse;font-size:12px;min-width:100%}
+.plan-table th{padding:6px 10px;border-bottom:2px solid var(--border2);border-right:1px solid var(--border);font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--text3);font-weight:500;white-space:nowrap;background:var(--bg3);position:sticky;top:0}
+.plan-table th:first-child{min-width:220px;left:0;z-index:2;background:var(--bg3);border-right:2px solid var(--border2)}
+.plan-table th.plan-mes-col{text-align:center;min-width:90px}
+.plan-table th.plan-mes-col.plan-atual{background:rgba(91,141,238,0.18);color:var(--accent)}
+.plan-table td{padding:7px 10px;border-bottom:1px solid var(--border);border-right:1px solid var(--border);vertical-align:middle}
+.plan-table td:first-child{font-size:12px;color:var(--text);background:var(--bg2);position:sticky;left:0;border-right:2px solid var(--border2);z-index:1}
+.plan-table td.plan-val{text-align:right;font-family:'DM Mono',monospace;font-size:12px}
+.plan-table td.plan-val.plan-zero{color:var(--text3);opacity:.3}
+.plan-table td.plan-val.plan-red{color:var(--red)}
+.plan-table td.plan-val.plan-green{color:var(--green)}
+.plan-table td.plan-val.plan-amber{color:var(--amber)}
+.plan-table td.plan-val.plan-purple{color:var(--purple)}
+.plan-table td.plan-val.plan-blue{color:var(--accent)}
+.plan-table tr:hover td{background:rgba(255,255,255,0.025)}
+.plan-table tr:hover td:first-child{background:var(--bg3)}
+/* Separadores de grupo */
+.plan-table tr.plan-group-header td{background:var(--bg4);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:5px 10px;border-top:2px solid var(--border2)}
+.plan-table tr.plan-group-header td:first-child{color:var(--text2)}
+/* Tfoot */
+.plan-table tfoot td{font-weight:700;background:var(--bg4);font-family:'DM Mono',monospace;font-size:12px;border-top:2px solid var(--border2)}
+.plan-table tfoot td:first-child{color:var(--text);font-family:'DM Sans',sans-serif;font-size:12px}
+.plan-table tfoot tr.plan-tfoot-reimb td{background:rgba(62,207,142,0.08);border-top:1px solid rgba(62,207,142,0.2)}
+.plan-table tfoot tr.plan-tfoot-reimb td:first-child{color:var(--green)}
+.plan-table tfoot tr.plan-tfoot-liquido td{background:rgba(91,141,238,0.08);border-top:1px solid rgba(91,141,238,0.2)}
+.plan-table tfoot tr.plan-tfoot-liquido td:first-child{color:var(--accent)}
+.plan-table tfoot tr.plan-tfoot-saldo td{background:rgba(246,173,85,0.08);border-top:2px solid var(--amber)}
+.plan-table tfoot tr.plan-tfoot-saldo td:first-child{color:var(--amber)}
+/* célula com botão de deletar item personalizado */
+.plan-item-cell{display:flex;align-items:center;gap:5px}
+.plan-item-name{flex:1;min-width:0}
+.plan-item-badge{display:inline-flex;align-items:center;padding:1px 5px;border-radius:3px;font-size:9px;font-weight:600;letter-spacing:.3px;margin-left:4px;vertical-align:middle;flex-shrink:0}
+.plan-item-cat{font-size:10px;color:var(--text3);margin-top:1px}
+.plan-del-btn{background:none;border:none;color:var(--text3);cursor:pointer;padding:2px 5px;border-radius:3px;font-size:13px;line-height:1;transition:all .12s;flex-shrink:0;opacity:0}
+tr:hover .plan-del-btn{opacity:1}
+.plan-del-btn:hover{color:var(--red);background:rgba(245,101,101,0.12)}
 .save-bar{position:fixed;bottom:1.2rem;right:1.2rem;z-index:200;display:flex;gap:8px;align-items:center;max-width:calc(100vw - 2.4rem)}
 .btn-save{background:linear-gradient(135deg,var(--green),var(--teal));color:#fff;border:none;border-radius:var(--radius-sm);padding:10px 18px;font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:6px;font-family:'DM Sans',sans-serif;box-shadow:0 4px 16px rgba(62,207,142,0.3);transition:all .18s}
 .btn-save:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(62,207,142,0.45)}
@@ -518,11 +576,29 @@ select option{background:var(--bg3)}
 <!-- ABA 0 - DASHBOARD -->
 <div id="tab-dashboard" class="section active">
   <p class="page-title">Dashboard Financeiro</p>
-  <p class="page-sub">Visão geral da sua situação financeira — atualizado em tempo real</p>
+
+  <!-- Barra de controle: modo + seletor de mês -->
+  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:1.2rem;padding:10px 14px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius)">
+    <!-- Botões de modo -->
+    <div style="display:flex;gap:4px;background:var(--bg3);border-radius:8px;padding:3px">
+      <button id="dash-btn-mes" onclick="setDashModo('mes')" class="btn btn-sm" style="background:var(--accent);color:#fff;border-radius:6px;border:none">📅 Mês</button>
+      <button id="dash-btn-acum" onclick="setDashModo('acumulado')" class="btn btn-sm" style="background:none;color:var(--text2);border-radius:6px;border:none">📈 Acumulado</button>
+    </div>
+    <!-- Seletor de mês (visível só no modo Mês) -->
+    <div id="dash-mes-wrap" style="display:flex;align-items:center;gap:8px">
+      <button onclick="navDashMes(-1)" style="background:var(--bg3);border:1px solid var(--border2);border-radius:6px;color:var(--text2);width:28px;height:28px;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center">‹</button>
+      <select id="dash-mes-sel" onchange="renderDashboard()" style="font-size:13px;font-weight:600;max-width:180px"></select>
+      <button onclick="navDashMes(1)" style="background:var(--bg3);border:1px solid var(--border2);border-radius:6px;color:var(--text2);width:28px;height:28px;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center">›</button>
+      <button onclick="irParaMesAtualDash()" style="background:var(--bg3);border:1px solid var(--border2);border-radius:6px;color:var(--text2);font-size:11px;padding:3px 8px;cursor:pointer;white-space:nowrap">Hoje</button>
+    </div>
+    <div id="dash-acum-label" style="display:none;font-size:12px;color:var(--text2)">Desde <b style="color:var(--accent)">março/2026</b> até <span id="dash-acum-ate"></span></div>
+    <div style="margin-left:auto;font-size:11px;color:var(--text3)" id="dash-modo-label">Visão mensal</div>
+  </div>
+
   <div class="overview-grid" id="dash-overview"></div>
   <div class="two-col">
     <div class="card">
-      <div class="card-title">Demonstrativo simplificado</div>
+      <div class="card-title" id="dash-demost-title">Demonstrativo simplificado</div>
       <div id="dash-demonstrativo" style="font-size:13px"></div>
     </div>
     <div class="card">
@@ -532,7 +608,7 @@ select option{background:var(--bg3)}
   </div>
   <div class="two-col">
     <div class="card">
-      <div class="card-title">Compromissos do mês atual</div>
+      <div class="card-title" id="dash-comp-title">Compromissos do mês</div>
       <div id="dash-compromissos" style="font-size:13px"></div>
     </div>
     <div class="card">
@@ -700,6 +776,24 @@ select option{background:var(--bg3)}
     <div class="card"><div class="card-title">Fixas & Dívidas</div><div id="desp-fixas-list"></div></div>
     <div class="card"><div class="card-title">Variáveis</div><div id="desp-var-list"></div></div>
   </div>
+
+  <!-- NOVA SEÇÃO: Despesas fixas mês a mês -->
+  <div class="card" style="margin-bottom:1.2rem">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:1rem">
+      <div class="card-title" style="margin-bottom:0">Despesas fixas — visão mês a mês</div>
+      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+        <label style="font-size:12px;color:var(--text2)">Ano:</label>
+        <select id="desp-ano-filtro" onchange="renderDespesasMesAMes()" style="max-width:110px;font-size:13px;font-weight:600"></select>
+        <label style="font-size:12px;color:var(--text2)">Meses:</label>
+        <select id="desp-qtd-meses" onchange="renderDespesasMesAMes()" style="max-width:100px;font-size:13px">
+          <option value="6">6 meses</option>
+          <option value="12" selected>12 meses</option>
+        </select>
+      </div>
+    </div>
+    <div class="tw" id="desp-mam-wrap" style="overflow-x:auto"></div>
+  </div>
+
   <div class="card">
     <div class="card-title">Distribuição por categoria</div>
     <div class="chart-legend" id="desp-legend"></div>
@@ -710,7 +804,7 @@ select option{background:var(--bg3)}
 <!-- ABA 3 - MÊS A MÊS -->
 <div id="tab-mensal" class="section">
   <p class="page-title">Acompanhamento Mês a Mês</p>
-  <p class="page-sub">Visão completa de tudo que você vai desembolsar no mês — fixos, lotes, dívidas e compromissos extras.</p>
+  <p class="page-sub">Visão completa de todos os desembolsos previstos — fixos, variáveis, cartões, lotes, consórcios e avulsos.</p>
 
   <!-- Seletor de mês no topo -->
   <div style="display:flex;align-items:center;gap:12px;margin-bottom:1.2rem;flex-wrap:wrap">
@@ -725,46 +819,117 @@ select option{background:var(--bg3)}
   <!-- Métricas do mês -->
   <div class="metric-grid" id="mensal-metrics"></div>
 
-  <!-- PAINEL PRINCIPAL: Composição detalhada dos desembolsos -->
+  <!-- PAINEL PRINCIPAL: Composição detalhada dos desembolsos do mês atual -->
   <div id="desembolso-panel-wrap"></div>
 
-  <!-- Área de duas colunas: formulário + compromissos extras lançados -->
-  <div class="two-col" style="margin-bottom:1.2rem">
-    <div class="card">
-      <div class="card-title">Lançar compromisso avulso</div>
-      <div class="form-row">
-        <label class="form-label">Descrição</label>
-        <input type="text" id="men-desc" placeholder="Ex: Fatura Nubank, Médico..." style="flex:1">
+  <!-- TABELA HORIZONTAL: planejamento ao longo dos meses -->
+  <div class="card" style="margin-bottom:1.2rem">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:1rem">
+      <div class="card-title" style="margin-bottom:0">📅 Planejamento — visão mês a mês</div>
+      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+        <label style="font-size:12px;color:var(--text2)">Ano:</label>
+        <select id="plan-ano-filtro" onchange="renderPlanoMesAMes()" style="max-width:110px;font-size:13px;font-weight:600"></select>
+        <label style="font-size:12px;color:var(--text2)">Meses:</label>
+        <select id="plan-qtd-meses" onchange="renderPlanoMesAMes()" style="max-width:100px;font-size:13px">
+          <option value="6">6 meses</option>
+          <option value="12" selected>12 meses</option>
+        </select>
+        <button class="btn btn-sm" onclick="abrirModalNovoItem()" style="background:rgba(91,141,238,0.15);color:var(--accent);border:1px solid rgba(91,141,238,0.3)">+ Novo item</button>
       </div>
-      <div class="form-row">
-        <label class="form-label">Categoria</label>
-        <input type="text" id="men-cat" placeholder="Ex: Saúde, Cartão..." style="flex:1">
+    </div>
+    <div class="tw" id="plan-mam-wrap" style="overflow-x:auto"></div>
+  </div>
+
+  <!-- Lançar compromisso avulso (mantido, compacto) -->
+  <div class="card" style="margin-bottom:1.2rem">
+    <div class="card-title">Lançar compromisso avulso no mês selecionado</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:flex-end">
+      <div style="flex:2;min-width:140px">
+        <div style="font-size:11px;color:var(--text3);margin-bottom:4px">Descrição</div>
+        <input type="text" id="men-desc" placeholder="Ex: Fatura Nubank, Médico..." style="width:100%">
       </div>
-      <div class="form-row">
-        <label class="form-label">Valor (R$)</label>
-        <input type="number" id="men-val" placeholder="0,00" min="0" style="max-width:160px">
+      <div style="flex:1;min-width:110px">
+        <div style="font-size:11px;color:var(--text3);margin-bottom:4px">Categoria</div>
+        <input type="text" id="men-cat" placeholder="Ex: Saúde, Cartão..." style="width:100%">
       </div>
-      <div class="form-row">
-        <label class="form-label">Status</label>
-        <select id="men-status" style="max-width:180px">
+      <div style="flex:0 0 130px">
+        <div style="font-size:11px;color:var(--text3);margin-bottom:4px">Valor (R$)</div>
+        <input type="number" id="men-val" placeholder="0,00" min="0" style="width:100%">
+      </div>
+      <div style="flex:0 0 150px">
+        <div style="font-size:11px;color:var(--text3);margin-bottom:4px">Status</div>
+        <select id="men-status" style="width:100%">
           <option value="pendente">⏳ Pendente</option>
           <option value="pago">✅ Pago</option>
           <option value="parcial">🔶 Parcial</option>
         </select>
       </div>
-      <button class="btn btn-p" onclick="addCompromisso()" style="width:100%;justify-content:center;margin-top:4px">+ Adicionar</button>
-    </div>
-    <div class="card">
-      <div class="card-title">Compromissos avulsos — mês selecionado</div>
-      <div id="men-resumo" style="font-size:13px"></div>
+      <button class="btn btn-p" onclick="addCompromisso()" style="white-space:nowrap">+ Adicionar</button>
     </div>
   </div>
 
-  <!-- Lista histórica de meses -->
-  <div class="card" style="margin-bottom:.5rem">
-    <div class="card-title">Histórico de meses</div>
-    <div id="meses-list"></div>
+  <!-- Modal para novo item na tabela de planejamento -->
+  <div id="modal-novo-item" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:9998;align-items:center;justify-content:center;padding:1.5rem">
+    <div style="background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius);padding:1.6rem;width:100%;max-width:520px;box-shadow:0 24px 60px rgba(0,0,0,0.5)">
+      <div style="font-size:15px;font-weight:600;margin-bottom:1.2rem;display:flex;justify-content:space-between;align-items:center">
+        ➕ Novo item de planejamento
+        <button onclick="document.getElementById('modal-novo-item').style.display='none'" style="background:none;border:none;color:var(--text3);font-size:20px;cursor:pointer">×</button>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-bottom:10px">
+        <div>
+          <div style="font-size:11px;color:var(--text3);margin-bottom:4px;text-transform:uppercase;letter-spacing:.4px">Descrição *</div>
+          <input type="text" id="ni-desc" placeholder="Ex: Academia, Streaming..." style="width:100%">
+        </div>
+        <div>
+          <div style="font-size:11px;color:var(--text3);margin-bottom:4px;text-transform:uppercase;letter-spacing:.4px">Categoria *</div>
+          <select id="ni-cat" style="width:100%">
+            <option value="Moradia">🏠 Moradia</option>
+            <option value="Transporte">🚗 Transporte</option>
+            <option value="Família">👨‍👧 Família</option>
+            <option value="Saúde">🏥 Saúde</option>
+            <option value="Alimentação">🍽 Alimentação</option>
+            <option value="Educação">📚 Educação</option>
+            <option value="Lazer">🎉 Lazer</option>
+            <option value="Investimento">📈 Investimento</option>
+            <option value="Consórcio">🚗 Consórcio</option>
+            <option value="Dívidas">💳 Dívidas</option>
+            <option value="Serviços">⚙️ Serviços</option>
+            <option value="Outros">📋 Outros</option>
+          </select>
+        </div>
+        <div>
+          <div style="font-size:11px;color:var(--text3);margin-bottom:4px;text-transform:uppercase;letter-spacing:.4px">Tipo</div>
+          <select id="ni-tipo" onchange="atualizarVisibilidadeMesFim()" style="width:100%">
+            <option value="fixa">Fixa (todo mês)</option>
+            <option value="variavel">Variável (todo mês)</option>
+            <option value="parcelada">Parcelada (meses específicos)</option>
+            <option value="pontual">Pontual (só um mês)</option>
+          </select>
+        </div>
+        <div>
+          <div style="font-size:11px;color:var(--text3);margin-bottom:4px;text-transform:uppercase;letter-spacing:.4px">Valor (R$) *</div>
+          <input type="number" id="ni-val" placeholder="0,00" min="0" step="0.01" style="width:100%">
+        </div>
+        <div>
+          <div style="font-size:11px;color:var(--text3);margin-bottom:4px;text-transform:uppercase;letter-spacing:.4px">Mês início *</div>
+          <select id="ni-mes-inicio" style="width:100%"></select>
+        </div>
+        <div id="ni-mes-fim-wrap">
+          <div style="font-size:11px;color:var(--text3);margin-bottom:4px;text-transform:uppercase;letter-spacing:.4px">Mês fim</div>
+          <select id="ni-mes-fim" style="width:100%"></select>
+        </div>
+        <div style="grid-column:1/-1">
+          <div style="font-size:11px;color:var(--text3);margin-bottom:4px;text-transform:uppercase;letter-spacing:.4px">Observação</div>
+          <input type="text" id="ni-obs" placeholder="Opcional..." style="width:100%">
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;margin-top:4px">
+        <button onclick="salvarNovoItemPlano()" class="btn btn-p" style="flex:1;justify-content:center">💾 Salvar item</button>
+        <button onclick="document.getElementById('modal-novo-item').style.display='none'" class="btn" style="background:var(--bg3);border:1px solid var(--border2);color:var(--text2)">Cancelar</button>
+      </div>
+    </div>
   </div>
+
 </div>
 
 <!-- ABA 4 - CARTÕES -->
@@ -791,6 +956,7 @@ select option{background:var(--bg3)}
       <select id="lanc-mes" style="min-width:140px"></select>
       <input type="text" id="lanc-desc" placeholder="Descrição" style="flex:1;min-width:160px">
       <input type="number" id="lanc-val" placeholder="Valor (R$)" min="0" style="max-width:120px">
+      <input type="number" id="lanc-reimb" placeholder="Reembolso (R$)" min="0" style="max-width:130px" title="Valor que será reembolsado (ex: despesa compartilhada)">
       <select id="lanc-cat" style="min-width:120px">
         <option value="Compras">Compras</option>
         <option value="Mercado">Mercado</option>
@@ -826,6 +992,23 @@ select option{background:var(--bg3)}
 <div id="tab-lotes" class="section">
   <p class="page-title">Lotes Corumbá 4</p>
   <p class="page-sub">Cronograma real de pagamentos: entradas + mensais (mensais só iniciam após quitação das entradas)</p>
+
+  <!-- Controles: filtro de mês + toggle acumulado/mês -->
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:1.2rem;flex-wrap:wrap">
+    <label style="font-size:13px;color:var(--text2);font-weight:500">📅 Ver até o mês:</label>
+    <select id="lote-mes-filtro" style="max-width:200px;font-size:14px;font-weight:600" onchange="renderLotes()"></select>
+    <div style="display:flex;gap:6px;margin-left:auto">
+      <button id="btn-lote-mes" onclick="setLoteVista('mes')"
+        style="padding:6px 14px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;border:1px solid var(--accent);background:var(--accent);color:#fff;font-family:'DM Sans',sans-serif">
+        📅 Mês selecionado
+      </button>
+      <button id="btn-lote-acum" onclick="setLoteVista('acumulado')"
+        style="padding:6px 14px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;border:1px solid var(--border2);background:var(--bg3);color:var(--text2);font-family:'DM Sans',sans-serif">
+        📊 Acumulado
+      </button>
+    </div>
+  </div>
+
   <div class="metric-grid" id="lote-metrics"></div>
 
   <!-- Painel acumulado investido -->
@@ -853,7 +1036,7 @@ select option{background:var(--bg3)}
     </div>
     <!-- LOTE 15 -->
     <div class="lote-card">
-      <div class="lote-title">🏡 Lote 15 <span style="font-size:11px;font-weight:400;color:var(--text3)">R$ 12.226,26 entrada</span></div>
+      <div class="lote-title">🏡 Lote 15 <span style="font-size:11px;font-weight:400;color:var(--text3)">R$ 18.223,86 entrada</span></div>
       <div class="lote-row"><span style="color:var(--text2)">Sinal pago</span><span class="mono" style="color:var(--green)">R$ 1.000,00 — Março/2025</span></div>
       <div class="lote-row"><span style="color:var(--text2)">Saldo da entrada</span><span class="mono v-amber">R$ 11.226,26 (em 6 parcelas)</span></div>
       <div class="lote-row"><span style="color:var(--text2)">Próxima parcela</span><span class="mono v-red">R$ 1.037,71 — Maio/2025</span></div>
@@ -1134,7 +1317,131 @@ function salvarPagoParcial(ctxIdx){
   renderMensal();
 }
 
-// ── Estado global ──────────────────────────────────────────────
+// ── Função central: totais reais baseados em statusDesembolsos ──
+// Para LOTES: percorre o cronograma real mês a mês até o atual.
+//   - status 'pago' → soma o valor do item
+//   - status 'parcial' → soma o valor parcial registrado
+//   - mês passado sem status → assume pago (ocorreu antes do sistema)
+//   - mês atual sem status → pendente, não soma
+// Para DEMAIS: percorre statusDesembolsos + meses históricos.
+// ── Acumulado efetivo global de lotes (sem limite de data) ────
+// Soma tudo que foi marcado pago/parcial em qualquer mês,
+// incluindo adiantamentos. Vencidos não pagos ficam de fora.
+function calcLotesEfetivoGlobal(ipca7, ipca15){
+  ipca7  = ipca7  || parseFloat(document.getElementById('l7-ipca')?.value)  || 4.5;
+  ipca15 = ipca15 || parseFloat(document.getElementById('l15-ipca')?.value) || 4.5;
+  let total = 0;
+
+  // Lote 07 — entradas
+  Object.entries(LOTE07.cronogramaEntrada).forEach(([mk, val]) => {
+    const st = getStatusItem(mk, 'lotes', 'Lote 07 — parcela de entrada');
+    if     (st.status === 'pago')    total += val;
+    else if(st.status === 'parcial') total += (st.pago || 0);
+  });
+  // Lote 07 — mensais (varre 240 meses)
+  { const [sy,sm] = LOTE07.mesInicioMensal.split('-').map(Number);
+    for(let i=0;i<240;i++){
+      const m2=((sm-1+i)%12)+1, y2=sy+Math.floor((sm-1+i)/12);
+      const mk=`${y2}-${String(m2).padStart(2,'0')}`;
+      const st = getStatusItem(mk, 'lotes', 'Lote 07 — mensalidade');
+      if     (st.status === 'pago')    total += getParcelaMensalLote(LOTE07, mk, ipca7);
+      else if(st.status === 'parcial') total += (st.pago || 0);
+    }
+  }
+
+  // Lote 15 — entradas
+  Object.entries(LOTE15.cronogramaEntrada).forEach(([mk, val]) => {
+    const desc = mk === '2026-03' ? 'Lote 15 — sinal' : 'Lote 15 — parcela de entrada';
+    const st = getStatusItem(mk, 'lotes', desc);
+    if     (st.status === 'pago')    total += val;
+    else if(st.status === 'parcial') total += (st.pago || 0);
+  });
+  // Lote 15 — mensais (varre 240 meses)
+  { const [sy,sm] = LOTE15.mesInicioMensal.split('-').map(Number);
+    for(let i=0;i<240;i++){
+      const m2=((sm-1+i)%12)+1, y2=sy+Math.floor((sm-1+i)/12);
+      const mk=`${y2}-${String(m2).padStart(2,'0')}`;
+      const st = getStatusItem(mk, 'lotes', 'Lote 15 — mensalidade');
+      if     (st.status === 'pago')    total += getParcelaMensalLote(LOTE15, mk, ipca15);
+      else if(st.status === 'parcial') total += (st.pago || 0);
+    }
+  }
+
+  return total;
+}
+
+function getTotaisReais(ateMesKey){
+  // ateMesKey: mês de corte para cálculo (padrão = mês atual)
+  // Passa mês futuro para ver pagamentos adiantados
+  if(!ateMesKey) ateMesKey = getMesKey(hoje.getFullYear(), hoje.getMonth());
+  const mesAtualKey = ateMesKey;
+  const ipca7  = parseFloat(document.getElementById('l7-ipca')?.value)  || 4.5;
+  const ipca15 = parseFloat(document.getElementById('l15-ipca')?.value) || 4.5;
+
+  // ── 1. LOTES — acumulado efetivo real (só pago/parcial, qualquer mês) ──
+  const acumLotes = calcLotesEfetivoGlobal(ipca7, ipca15);
+
+  // ── 2. DEMAIS CATEGORIAS ──────────────────────────────────────
+  let acumDespFixas = 0, acumCartoes = 0, acumAvulsos = 0, acumCustom = 0;
+
+  const mesesComDados = new Set();
+  Object.keys(statusDesembolsos).forEach(m => mesesComDados.add(m));
+  lancamentos.filter(l => l.mes <= mesAtualKey).forEach(l => mesesComDados.add(l.mes));
+  Object.keys(compromissos).filter(m => m <= mesAtualKey).forEach(m => mesesComDados.add(m));
+
+  mesesComDados.forEach(mk => {
+    if(mk > mesAtualKey) return;
+    const grupos = getGruposDesembolso(mk);
+    grupos.forEach(g => {
+      if(g.id === 'lotes') return; // calculado acima
+      g.itens.forEach(it => {
+        const st = getStatusItem(mk, g.id, it.desc);
+        const pagoEf = st.status==='pago' ? it.val
+          : st.status==='parcial' ? (st.pago||0) : 0;
+        if(pagoEf === 0) return;
+        if     (g.id === 'avulsos')      acumAvulsos   += pagoEf;
+        else if(g.id === 'planejamento') acumCustom    += pagoEf;
+        else                             acumDespFixas += pagoEf;
+      });
+    });
+    // Cartões
+    const faturasMk = lancamentos.filter(l => l.mes===mk).reduce((s,l)=>s+l.val,0);
+    if(faturasMk > 0){
+      const st = getStatusItem(mk, 'cartoes', 'Fatura total');
+      if     (st.status==='pago')    acumCartoes += faturasMk;
+      else if(st.status==='parcial') acumCartoes += (st.pago||0);
+      else if(mk <= mesAtualKey)      acumCartoes += faturasMk;
+    }
+  });
+
+  // ── 3. Mês atual: previsto vs pago ───────────────────────────
+  const gruposMesAtual = getGruposDesembolso(mesAtualKey);
+  let previstoMes=0, pagoMes=0, pendenteMes=0;
+  gruposMesAtual.forEach(g => {
+    g.itens.forEach(it => {
+      previstoMes += it.val;
+      const st = getStatusItem(mesAtualKey, g.id, it.desc);
+      const ef = st.status==='pago' ? it.val : st.status==='parcial' ? (st.pago||0) : 0;
+      pagoMes     += ef;
+      pendenteMes += (it.val - ef);
+    });
+  });
+  const faturasMesAtual = lancamentos.filter(l=>l.mes===mesAtualKey).reduce((s,l)=>s+l.val,0);
+  const reembMesAtual   = lancamentos.filter(l=>l.mes===mesAtualKey&&(l.reimb||0)>0).reduce((s,l)=>s+(l.reimb||0),0);
+  previstoMes += faturasMesAtual;
+  const stCartaoMes = getStatusItem(mesAtualKey,'cartoes','Fatura total');
+  const fatCartaoPagoMes = stCartaoMes.status==='pago' ? faturasMesAtual
+    : stCartaoMes.status==='parcial' ? (stCartaoMes.pago||0) : 0;
+  pagoMes     += fatCartaoPagoMes;
+  pendenteMes += faturasMesAtual - fatCartaoPagoMes;
+
+  const acumTotal = acumLotes + acumDespFixas + acumCartoes + acumAvulsos + acumCustom;
+  return { acumTotal, acumLotes, acumDespFixas, acumCartoes, acumAvulsos,
+           previstoMes, pagoMes, pendenteMes, faturasMesAtual, reembMesAtual };
+}
+
+
+
 let dependentes=['Helena','Melina']; // filhas já incluídas por padrão
 let beneficios=[];
 let despesas=[
@@ -1257,9 +1564,9 @@ let compromissos={};
 //   Mensais R$ 1.238,16 → set/26 em diante (SEM reajuste até jan/2027)
 //   Reajuste 2%+IPCA começa em jan/2027
 //
-// LOTE 15 — R$ 12.226,26 total entrada
+// LOTE 15 — R$ 18.223,86 total entrada
 //   Sinal R$ 1.000,00 → mar/26
-//   mai/26: R$ 1.037,71  (2037.71 − 1000 = saldo da 1ª parcela normal)
+//   mai/26: R$ 2.037,31  (3.037,31 − 1.000,00 do sinal)
 //   jun/26 a out/26: 5× R$ 2.037,71
 //   Mensais R$ 683,48 → nov/26 em diante (SEM reajuste até jan/2027)
 //   Reajuste 2%+IPCA começa em jan/2027
@@ -1287,16 +1594,16 @@ const LOTE07 = {
 
 const LOTE15 = {
   nome: 'Lote 15',
-  totalEntrada: 12226.26,
+  totalEntrada: 18223.86,  // 1.000 + 2.037,31 + 5× 3.037,31
   parcelaMensal: 683.48,
   cronogramaEntrada: {
     '2026-03': 1000.00,    // sinal
-    '2026-05': 1037.71,    // saldo da 1ª parcela (2037.71 − 1000)
-    '2026-06': 2037.71,
-    '2026-07': 2037.71,
-    '2026-08': 2037.71,
-    '2026-09': 2037.71,
-    '2026-10': 2037.71,
+    '2026-05': 2037.31,    // complemento (3.037,31 − 1.000,00 do sinal)
+    '2026-06': 3037.31,
+    '2026-07': 3037.31,
+    '2026-08': 3037.31,
+    '2026-09': 3037.31,
+    '2026-10': 3037.31,
   },
   mesInicioMensal: '2026-11',
   mesInicioReajuste: '2027-01',
@@ -1679,19 +1986,169 @@ function renderDespesas(){
   document.getElementById('desp-legend').innerHTML=lbs.map((l,i)=>`<div class="chart-legend-item"><div class="chart-legend-dot" style="background:${cs[i]}"></div>${l}: ${R(cats[l])}</div>`).join('');
   if(despChart)despChart.destroy();
   if(lbs.length)despChart=new Chart(document.getElementById('desp-chart'),{type:'doughnut',data:{labels:lbs,datasets:[{data:dt,backgroundColor:cs,borderWidth:0,hoverOffset:6}]},options:{responsive:true,maintainAspectRatio:false,cutout:'65%',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.label}: ${R(c.raw)} (${(c.raw/total*100).toFixed(1)}%)`}}}}});
+  renderDespesasMesAMes();
+  renderPlanoMesAMes();
 }
 function editDesp(i){const cell=document.getElementById('dv-'+i);if(cell.querySelector('input'))return;cell.innerHTML=`<input class="edit-input" type="number" value="${despesas[i].val}" onblur="saveDesp(${i},this.value)" onkeydown="if(event.key==='Enter')this.blur()" autofocus>`;cell.querySelector('input').focus();}
 function saveDesp(i,v){const n=parseFloat(v);if(!isNaN(n)&&n>=0)despesas[i].val=n;renderDespesas();}
 function addDespesa(){const cat=document.getElementById('desp-cat').value.trim(),desc=document.getElementById('desp-desc').value.trim(),tipo=document.getElementById('desp-tipo').value,val=parseFloat(document.getElementById('desp-val').value)||0,obs=document.getElementById('desp-obs').value.trim();if(!cat||!val)return;despesas.push({cat,desc,tipo,val,obs});['desp-cat','desp-desc','desp-val','desp-obs'].forEach(id=>document.getElementById(id).value='');renderDespesas();marcarAlterado();}
 function delDespesa(i){despesas.splice(i,1);renderDespesas();marcarAlterado();}
 
+// ── Despesas Fixas — Visão Mês a Mês ────────────────────────
+function initDespAnoFiltro(){
+  const sel = document.getElementById('desp-ano-filtro');
+  if(!sel) return;
+  const anoAtual = hoje.getFullYear();
+  const anos = [];
+  for(let a = anoAtual; a <= anoAtual + 4; a++) anos.push(a);
+  const cur = sel.value;
+  sel.innerHTML = anos.map(a=>`<option value="${a}" ${a===anoAtual?'selected':''}>${a}</option>`).join('');
+  if(cur && sel.querySelector(`option[value="${cur}"]`)) sel.value = cur;
+}
 
-// ── Provisões Automáticas ─────────────────────────────────────
+function renderDespesasMesAMes(){
+  initDespAnoFiltro();
+  const wrap = document.getElementById('desp-mam-wrap');
+  if(!wrap) return;
+
+  const anoSel = parseInt(document.getElementById('desp-ano-filtro')?.value) || hoje.getFullYear();
+  const qtdMeses = parseInt(document.getElementById('desp-qtd-meses')?.value) || 12;
+
+  // Gerar array de meses do ano selecionado (ou a partir do mês atual se for o ano atual)
+  const meses = [];
+  const anoAtual = hoje.getFullYear();
+  const mesAtual = hoje.getMonth(); // 0-indexed
+  const mesInicioIdx = (anoSel === anoAtual) ? mesAtual : 0;
+  for(let i = 0; i < qtdMeses; i++){
+    const m = mesInicioIdx + i;
+    const ano = anoSel + Math.floor(m / 12);
+    const mes = m % 12;
+    meses.push(getMesKey(ano, mes));
+  }
+
+  // Despesas fixas e dívidas (não variáveis) — ordenadas por categoria
+  const fixas = despesas
+    .filter(d => d.tipo !== 'variavel')
+    .sort((a,b) => a.cat.localeCompare(b.cat));
+
+  if(!fixas.length){
+    wrap.innerHTML = '<p style="color:var(--text3);font-size:12px;padding:10px 0">Nenhuma despesa fixa cadastrada ainda.</p>';
+    return;
+  }
+
+  const mesAtualKey = getMesKey(hoje.getFullYear(), hoje.getMonth());
+
+  // Cabeçalho
+  const thMeses = meses.map(mk=>{
+    const isAtual = mk === mesAtualKey;
+    return `<th class="mes-col${isAtual?' atual':''}">
+      ${isAtual?'<span style="display:block;font-size:9px;color:var(--accent);font-weight:700;letter-spacing:.3px">ATUAL</span>':''}
+      ${getMesLabel(mk).replace(' ','<br>')}
+    </th>`;
+  }).join('');
+
+  // Linhas por despesa
+  const rows = fixas.map(d=>{
+    const tipoBadge = d.tipo === 'divida'
+      ? `<span class="mam-badge" style="background:rgba(245,101,101,0.15);color:var(--red)">Dívida</span>`
+      : `<span class="mam-badge" style="background:rgba(91,141,238,0.13);color:var(--accent)">Fixa</span>`;
+
+    const tds = meses.map(mk=>{
+      const isAtual = mk === mesAtualKey;
+      return `<td class="mam-val${d.val===0?' zero':''}" style="${isAtual?'background:rgba(91,141,238,0.06)':''}">
+        ${R(d.val)}
+      </td>`;
+    }).join('');
+
+    return `<tr>
+      <td>
+        <div style="font-weight:500">${d.desc}${tipoBadge}</div>
+        <div class="mam-desp-cat">${d.cat}${d.obs?` · ${d.obs}`:''}</div>
+      </td>
+      ${tds}
+    </tr>`;
+  }).join('');
+
+  // Linha de total por mês
+  const totalTds = meses.map(mk=>{
+    const total = fixas.reduce((s,d)=>s+d.val,0);
+    const isAtual = mk === mesAtualKey;
+    return `<td class="mam-val" style="${isAtual?'background:rgba(91,141,238,0.06)':''}">
+      ${R(total)}
+    </td>`;
+  }).join('');
+
+  // Linha de reembolsos previstos por mês (dos lançamentos de cartão)
+  const reembTds = meses.map(mk=>{
+    const totalReemb = lancamentos
+      .filter(l => l.mes === mk && l.reimb > 0)
+      .reduce((s,l) => s + (l.reimb||0), 0);
+    const isAtual = mk === mesAtualKey;
+    return `<td class="mam-val" style="color:var(--green);${isAtual?'background:rgba(91,141,238,0.06)':''}">
+      ${totalReemb > 0 ? R(totalReemb) : '<span style="opacity:.3">—</span>'}
+    </td>`;
+  }).join('');
+
+  // Linha de líquido (fixas - reembolsos)
+  const liquidoTds = meses.map(mk=>{
+    const totalFixas = fixas.reduce((s,d)=>s+d.val,0);
+    const totalReemb = lancamentos
+      .filter(l => l.mes === mk && l.reimb > 0)
+      .reduce((s,l) => s + (l.reimb||0), 0);
+    const liquido = Math.max(0, totalFixas - totalReemb);
+    const isAtual = mk === mesAtualKey;
+    return `<td class="mam-val" style="color:var(--amber);${isAtual?'background:rgba(91,141,238,0.06)':''}">
+      ${R(liquido)}
+    </td>`;
+  }).join('');
+
+  // Verificar se há algum reembolso previsto nos meses exibidos
+  const temReembolsos = meses.some(mk =>
+    lancamentos.some(l => l.mes === mk && l.reimb > 0)
+  );
+
+  wrap.innerHTML = `
+    <table class="mam-table">
+      <thead>
+        <tr>
+          <th>Despesa</th>
+          ${thMeses}
+        </tr>
+      </thead>
+      <tbody>${rows}</tbody>
+      <tfoot>
+        <tr>
+          <td>Total mensal (fixas + dívidas)</td>
+          ${totalTds}
+        </tr>
+        ${temReembolsos ? `
+        <tr style="opacity:.9">
+          <td style="color:var(--green);font-family:'DM Sans',sans-serif;font-size:11px">
+            ↩ Reembolsos previstos (cartões)
+            <div style="font-size:10px;color:var(--text3);font-weight:400;margin-top:1px">Lançamentos com reembolso em cada mês</div>
+          </td>
+          ${reembTds}
+        </tr>
+        <tr>
+          <td style="color:var(--amber);font-family:'DM Sans',sans-serif;font-size:11px">
+            Desembolso líquido estimado
+            <div style="font-size:10px;color:var(--text3);font-weight:400;margin-top:1px">Fixas − reembolsos previstos</div>
+          </td>
+          ${liquidoTds}
+        </tr>` : ''}
+      </tfoot>
+    </table>
+    <div style="margin-top:8px;font-size:11px;color:var(--text3)">
+      💡 Despesas fixas e dívidas têm valor constante mês a mês. Altere qualquer valor na tabela acima ou pelo botão ✏ na lista de despesas.${temReembolsos?' Reembolsos são registrados nos lançamentos de cartão (campo ↩ Reembolso).':' Para registrar reembolsos, use o campo "Reembolso (R$)" ao lançar uma despesa no cartão.'}
+    </div>`;
+}
+
+
 // Dados fixos conhecidos para provisão automática
 const PROVISOES_FIXAS = [
   // Lotes - entradas (só aparecem enquanto houver parcelas restantes)
   {id:'lote7-entrada',  cat:'🏡 Lotes', desc:'Lote 07 — parcela de entrada', val:5502.92,  tipo:'lote-entrada', loteId:'l7'},
-  {id:'lote15-entrada', cat:'🏡 Lotes', desc:'Lote 15 — parcela de entrada', val:2037.71,  tipo:'lote-entrada', loteId:'l15'},
+  {id:'lote15-entrada', cat:'🏡 Lotes', desc:'Lote 15 — parcela de entrada', val:3037.31,  tipo:'lote-entrada', loteId:'l15'},
   // Lotes - mensalidades (sempre presentes)
   {id:'lote7-mensal',   cat:'🏡 Lotes', desc:'Lote 07 — mensalidade',        val:1238.16,  tipo:'lote-mensal'},
   {id:'lote15-mensal',  cat:'🏡 Lotes', desc:'Lote 15 — mensalidade',        val:683.48,   tipo:'lote-mensal'},
@@ -1872,7 +2329,7 @@ function getGruposDesembolso(mesKey){
           obs: mesKey === '2026-03'
             ? 'Sinal · próxima em mai/2026: R$ 1.037,71 · mensais em nov/2026'
             : mesKey === '2026-05'
-            ? `Saldo da 1ª parcela (${R(2037.71)} − ${R(1000)}) · mensais iniciam em nov/2026`
+            ? `Complemento da 1ª parcela (${R(3037.31)} − ${R(1000)}) · mensais iniciam em nov/2026`
             : `${l15ord}ª de 7 · mensais iniciam em nov/2026`,
           val: ent15,
           badge: mesKey === '2026-03' ? 'Sinal' : 'Entrada',
@@ -2013,6 +2470,24 @@ function getGruposDesembolso(mesKey){
         badgeCor: c.status === 'pago' ? 'var(--green)' : c.status === 'parcial' ? 'var(--amber)' : 'var(--red)',
         avulsoIdx: i
       }))
+    },
+    // ─── ITENS DE PLANEJAMENTO CUSTOMIZADOS ───────────────────
+    {
+      id: 'planejamento',
+      nome: 'Planejamento customizado',
+      icone: '➕',
+      cor: 'var(--teal)',
+      bg: 'rgba(45,212,191,0.10)',
+      itens: itensPlanejamento
+        .filter(it => getValItemPlano(it, mesKey) > 0)
+        .map(it => ({
+          desc: it.desc,
+          obs: it.cat + (it.obs ? ` · ${it.obs}` : '') + ` · ${({fixa:'Fixa',variavel:'Variável',parcelada:'Parcelada',pontual:'Pontual'})[it.tipo]||it.tipo}`,
+          val: getValItemPlano(it, mesKey),
+          badge: it.cat,
+          badgeBg: 'rgba(45,212,191,0.15)',
+          badgeCor: 'var(--teal)'
+        }))
     },
   ].filter(g => g.itens.length > 0);
 }
@@ -2233,6 +2708,383 @@ function toggleMes(key){
   if(card) card.classList.toggle('expanded');
 }
 
+// ── Itens de planejamento customizados (tabela mês a mês) ────
+// Cada item: {id, desc, cat, tipo, val, mesInicio, mesFim, obs}
+// tipo: 'fixa' | 'variavel' | 'parcelada' | 'pontual'
+let itensPlanejamento = [];
+
+function _planMesKey(mk){ return mk; }
+
+// Retorna o valor do item para um dado mês
+function getValItemPlano(item, mesKey){
+  if(item.tipo === 'fixa' || item.tipo === 'variavel'){
+    if(item.mesInicio && mesKey < item.mesInicio) return 0;
+    if(item.mesFim   && mesKey > item.mesFim)    return 0;
+    return item.val;
+  }
+  if(item.tipo === 'parcelada'){
+    if(!item.mesInicio || !item.mesFim) return 0;
+    if(mesKey < item.mesInicio || mesKey > item.mesFim) return 0;
+    return item.val;
+  }
+  if(item.tipo === 'pontual'){
+    return mesKey === item.mesInicio ? item.val : 0;
+  }
+  return 0;
+}
+
+// Inicializa os selects de mês do modal
+function initModalMeses(){
+  const anoAtual = hoje.getFullYear();
+  const mesAtual = getMesKey(hoje.getFullYear(), hoje.getMonth());
+  ['ni-mes-inicio','ni-mes-fim'].forEach(selId=>{
+    const sel = document.getElementById(selId);
+    if(!sel) return;
+    sel.innerHTML = '';
+    for(let a = anoAtual; a <= anoAtual + 4; a++){
+      for(let m = 0; m < 12; m++){
+        if(a === anoAtual && getMesKey(a,m) < mesAtual) continue;
+        const key = getMesKey(a,m);
+        const opt = document.createElement('option');
+        opt.value = key; opt.textContent = getMesLabel(key);
+        sel.appendChild(opt);
+      }
+    }
+  });
+}
+
+function abrirModalNovoItem(){
+  initModalMeses();
+  // mostrar/ocultar campo "mês fim" conforme tipo
+  const modal = document.getElementById('modal-novo-item');
+  modal.style.display = 'flex';
+  document.getElementById('ni-desc').value = '';
+  document.getElementById('ni-val').value = '';
+  document.getElementById('ni-obs').value = '';
+  atualizarVisibilidadeMesFim();
+}
+
+function atualizarVisibilidadeMesFim(){
+  const tipo = document.getElementById('ni-tipo')?.value;
+  const wrap = document.getElementById('ni-mes-fim-wrap');
+  if(!wrap) return;
+  // Para 'fixa' e 'variavel': mesFim = opcional (fim da recorrência)
+  // Para 'parcelada': mesFim = obrigatório
+  // Para 'pontual': mesFim oculto
+  if(tipo === 'pontual'){
+    wrap.style.display = 'none';
+  } else {
+    wrap.style.display = '';
+    const label = wrap.querySelector('div');
+    if(label) label.textContent = tipo === 'parcelada' ? 'Mês fim *' : 'Mês fim (se tiver prazo)';
+  }
+}
+
+
+function salvarNovoItemPlano(){
+  const desc = document.getElementById('ni-desc')?.value.trim();
+  const cat  = document.getElementById('ni-cat')?.value;
+  const tipo = document.getElementById('ni-tipo')?.value;
+  const val  = parseFloat(document.getElementById('ni-val')?.value) || 0;
+  const mesInicio = document.getElementById('ni-mes-inicio')?.value;
+  const mesFim    = document.getElementById('ni-mes-fim')?.value || '';
+  const obs  = document.getElementById('ni-obs')?.value.trim() || '';
+  if(!desc || !val || !mesInicio){ alert('Preencha descrição, valor e mês início.'); return; }
+  const id = 'plano_' + Date.now() + '_' + Math.random().toString(36).slice(2,6);
+  itensPlanejamento.push({id, desc, cat, tipo, val, mesInicio, mesFim, obs});
+  document.getElementById('modal-novo-item').style.display = 'none';
+  marcarAlterado();
+  renderPlanoMesAMes();
+}
+
+function delItemPlano(id){
+  itensPlanejamento = itensPlanejamento.filter(it=>it.id !== id);
+  marcarAlterado();
+  renderPlanoMesAMes();
+}
+
+function initPlanAnoFiltro(){
+  const sel = document.getElementById('plan-ano-filtro');
+  if(!sel) return;
+  const anoAtual = hoje.getFullYear();
+  const cur = sel.value;
+  sel.innerHTML = '';
+  for(let a = anoAtual; a <= anoAtual + 4; a++){
+    const opt = document.createElement('option');
+    opt.value = a; opt.textContent = a;
+    if(a === anoAtual) opt.selected = true;
+    sel.appendChild(opt);
+  }
+  if(cur && sel.querySelector(`option[value="${cur}"]`)) sel.value = cur;
+}
+
+function renderPlanoMesAMes(){
+  initPlanAnoFiltro();
+  const wrap = document.getElementById('plan-mam-wrap');
+  if(!wrap) return;
+
+  const anoSel   = parseInt(document.getElementById('plan-ano-filtro')?.value) || hoje.getFullYear();
+  const qtdMeses = parseInt(document.getElementById('plan-qtd-meses')?.value) || 12;
+  const anoAtual = hoje.getFullYear();
+  const mesAtual = hoje.getMonth();
+  const mesAtualKey = getMesKey(anoAtual, mesAtual);
+  const mesInicioIdx = (anoSel === anoAtual) ? mesAtual : 0;
+
+  // Gerar array de meses
+  const meses = [];
+  for(let i = 0; i < qtdMeses; i++){
+    const m = mesInicioIdx + i;
+    meses.push(getMesKey(anoSel + Math.floor(m/12), m%12));
+  }
+
+  const l7ipca  = parseFloat(document.getElementById('l7-ipca')?.value)  || 4.5;
+  const l15ipca = parseFloat(document.getElementById('l15-ipca')?.value) || 4.5;
+  const {renda} = getInfo();
+
+  // ── Cabecalho ────────────────────────────────────────────────
+  const thMeses = meses.map(mk=>{
+    const isAtual = mk === mesAtualKey;
+    return `<th class="plan-mes-col${isAtual?' plan-atual':''}">
+      ${isAtual?'<span style="display:block;font-size:9px;color:var(--accent);font-weight:700;letter-spacing:.3px">ATUAL</span>':''}
+      ${getMesLabel(mk).replace(' ','<br>')}
+    </th>`;
+  }).join('');
+
+  // ── Helpers: cell com valor ──────────────────────────────────
+  const cell = (val, cls='plan-red', isAtual=false) =>
+    `<td class="plan-val ${val===0?'plan-zero':cls}" style="${isAtual?'background:rgba(91,141,238,0.06)':''}">${val===0?'—':R(val)}</td>`;
+
+  const groupHeader = (label, icone, cor) =>
+    `<tr class="plan-group-header"><td colspan="${meses.length+1}" style="color:${cor}">${icone} ${label}</td></tr>`;
+
+  // ── Grupos de linhas ─────────────────────────────────────────
+
+  // 1. DESPESAS FIXAS (por categoria)
+  const fixas = despesas.filter(d=>d.tipo!=='variavel').sort((a,b)=>a.cat.localeCompare(b.cat));
+  const rowsFixas = fixas.map(d=>{
+    const tds = meses.map(mk=>{
+      const isAtual = mk===mesAtualKey;
+      return cell(d.val, 'plan-red', isAtual);
+    }).join('');
+    const tipoCor = d.tipo==='divida'?'var(--red)':'var(--accent)';
+    const tipoLabel = d.tipo==='divida'?'Dívida':'Fixa';
+    return `<tr>
+      <td><div class="plan-item-cell">
+        <div class="plan-item-name">
+          <div style="font-weight:500">${d.desc}<span class="plan-item-badge" style="background:${d.tipo==='divida'?'rgba(245,101,101,0.15)':'rgba(91,141,238,0.13)'};color:${tipoCor}">${tipoLabel}</span></div>
+          <div class="plan-item-cat">${d.cat}${d.obs?` · ${d.obs}`:''}</div>
+        </div>
+      </div></td>
+      ${tds}
+    </tr>`;
+  }).join('');
+
+  // 2. DESPESAS VARIÁVEIS
+  const vars = despesas.filter(d=>d.tipo==='variavel').sort((a,b)=>a.cat.localeCompare(b.cat));
+  const rowsVars = vars.map(d=>{
+    const tds = meses.map(mk=>cell(d.val,'plan-amber',mk===mesAtualKey)).join('');
+    return `<tr>
+      <td><div class="plan-item-cell">
+        <div class="plan-item-name">
+          <div style="font-weight:500">${d.desc}<span class="plan-item-badge" style="background:rgba(246,173,85,0.15);color:var(--amber)">Variável</span></div>
+          <div class="plan-item-cat">${d.cat}</div>
+        </div>
+      </div></td>
+      ${tds}
+    </tr>`;
+  }).join('');
+
+  // 3. LOTES (entradas + mensais)
+  const rowsLote07 = (() => {
+    const tds = meses.map(mk=>{
+      const isAtual = mk===mesAtualKey;
+      const ent = getEntradaLoteMes(LOTE07, mk);
+      const men = getParcelaMensalLote(LOTE07, mk, l7ipca);
+      const val = ent>0 ? ent : men>0 ? men : 0;
+      const cls = ent>0 ? 'plan-amber' : 'plan-purple';
+      return cell(val, cls, isAtual);
+    }).join('');
+    return `<tr>
+      <td><div class="plan-item-cell">
+        <div class="plan-item-name">
+          <div style="font-weight:500">Lote 07<span class="plan-item-badge" style="background:rgba(167,139,250,0.15);color:var(--purple)">Lote</span></div>
+          <div class="plan-item-cat">Entradas mar–ago/26 · Mensais set/26+</div>
+        </div>
+      </div></td>
+      ${tds}
+    </tr>`;
+  })();
+
+  const rowsLote15 = (() => {
+    const tds = meses.map(mk=>{
+      const isAtual = mk===mesAtualKey;
+      const ent = getEntradaLoteMes(LOTE15, mk);
+      const men = getParcelaMensalLote(LOTE15, mk, l15ipca);
+      const val = ent>0 ? ent : men>0 ? men : 0;
+      const cls = ent>0 ? 'plan-amber' : 'plan-purple';
+      return cell(val, cls, isAtual);
+    }).join('');
+    return `<tr>
+      <td><div class="plan-item-cell">
+        <div class="plan-item-name">
+          <div style="font-weight:500">Lote 15<span class="plan-item-badge" style="background:rgba(167,139,250,0.15);color:var(--purple)">Lote</span></div>
+          <div class="plan-item-cat">Entradas mar–out/26 · Mensais nov/26+</div>
+        </div>
+      </div></td>
+      ${tds}
+    </tr>`;
+  })();
+
+  // 4. CARTÕES (total fatura por mês, agrupado por cartão)
+  const cartoesComLanc = cartoes.map((c,ci)=>({c,ci})).filter(({ci})=>
+    lancamentos.some(l=>l.cart===ci)
+  );
+  const rowsCartoes = cartoesComLanc.map(({c,ci})=>{
+    const tds = meses.map(mk=>{
+      const isAtual = mk===mesAtualKey;
+      const fatura = lancamentos.filter(l=>l.cart===ci && l.mes===mk).reduce((s,l)=>s+l.val,0);
+      // Células de cartão: mostrar 0 explícito se há alguma fatura futura neste cartão nos meses exibidos
+      const temFatura = lancamentos.some(l=>l.cart===ci && meses.includes(l.mes));
+      const showZero = temFatura && fatura===0;
+      return `<td class="plan-val${showZero?' plan-zero':fatura>0?' plan-red':' plan-zero'}" style="${isAtual?'background:rgba(91,141,238,0.06)':''}">${fatura>0?R(fatura):'<span style="opacity:.25">—</span>'}</td>`;
+    }).join('');
+    return `<tr>
+      <td><div class="plan-item-cell">
+        <div class="plan-item-name">
+          <div style="font-weight:500">${c.nome}<span class="plan-item-badge" style="background:rgba(245,101,101,0.13);color:var(--red)">Cartão</span></div>
+          <div class="plan-item-cat">${c.venc?`Venc. dia ${c.venc}`:'Cartão de crédito'}</div>
+        </div>
+      </div></td>
+      ${tds}
+    </tr>`;
+  }).join('');
+
+  // 5. COMPROMISSOS AVULSOS (por mês, agrupados)
+  const avulsoMeses = {};
+  meses.forEach(mk=>{ avulsoMeses[mk]=(compromissos[mk]||[]).reduce((s,c)=>s+c.val,0); });
+  const temAvulsos = Object.values(avulsoMeses).some(v=>v>0);
+  const rowsAvulsos = temAvulsos ? `<tr>
+    <td><div class="plan-item-cell">
+      <div class="plan-item-name">
+        <div style="font-weight:500">Compromissos avulsos<span class="plan-item-badge" style="background:rgba(62,207,142,0.13);color:var(--green)">Avulso</span></div>
+        <div class="plan-item-cat">Lançados manualmente em cada mês</div>
+      </div>
+    </div></td>
+    ${meses.map(mk=>cell(avulsoMeses[mk],'plan-blue',mk===mesAtualKey)).join('')}
+  </tr>` : '';
+
+  // 6. ITENS CUSTOMIZADOS
+  const rowsCustom = itensPlanejamento.map(item=>{
+    const tds = meses.map(mk=>{
+      const isAtual = mk===mesAtualKey;
+      const val = getValItemPlano(item, mk);
+      const cls = item.cat==='Investimento'?'plan-green':item.tipo==='variavel'?'plan-amber':'plan-blue';
+      return cell(val, cls, isAtual);
+    }).join('');
+    const tipoCores = {fixa:'rgba(91,141,238,0.13)',variavel:'rgba(246,173,85,0.13)',parcelada:'rgba(167,139,250,0.13)',pontual:'rgba(45,212,191,0.13)'};
+    const tipoTexto = {fixa:'Fixa',variavel:'Variável',parcelada:'Parcelada',pontual:'Pontual'};
+    return `<tr>
+      <td><div class="plan-item-cell">
+        <div class="plan-item-name">
+          <div style="font-weight:500">${item.desc}<span class="plan-item-badge" style="background:${tipoCores[item.tipo]||'rgba(91,141,238,0.13)'};color:var(--accent)">${tipoTexto[item.tipo]||item.tipo}</span></div>
+          <div class="plan-item-cat">${item.cat}${item.obs?` · ${item.obs}`:''}</div>
+        </div>
+        <button class="plan-del-btn" onclick="delItemPlano('${item.id}')" title="Remover item">×</button>
+      </div></td>
+      ${tds}
+    </tr>`;
+  }).join('');
+
+  // ── Totalizadores ────────────────────────────────────────────
+  // Total geral por mês
+  const totaisPorMes = meses.map(mk=>{
+    const totalFixas   = fixas.reduce((s,d)=>s+d.val,0);
+    const totalVars    = vars.reduce((s,d)=>s+d.val,0);
+    const lote07val    = getEntradaLoteMes(LOTE07,mk)||getParcelaMensalLote(LOTE07,mk,l7ipca);
+    const lote15val    = getEntradaLoteMes(LOTE15,mk)||getParcelaMensalLote(LOTE15,mk,l15ipca);
+    const totalCartoes = cartoesComLanc.reduce((s,{ci})=>s+lancamentos.filter(l=>l.cart===ci&&l.mes===mk).reduce((ss,l)=>ss+l.val,0),0);
+    const totalAvulsos = (compromissos[mk]||[]).reduce((s,c)=>s+c.val,0);
+    const totalCustom  = itensPlanejamento.reduce((s,it)=>s+getValItemPlano(it,mk),0);
+    return totalFixas + totalVars + lote07val + lote15val + totalCartoes + totalAvulsos + totalCustom;
+  });
+
+  // Reembolsos por mês (de lançamentos de cartão)
+  const reembPorMes = meses.map(mk=>
+    lancamentos.filter(l=>l.mes===mk && l.reimb>0).reduce((s,l)=>s+(l.reimb||0),0)
+  );
+
+  // Líquido = total - reembolsos
+  const liquidoPorMes = totaisPorMes.map((t,i)=>Math.max(0,t-reembPorMes[i]));
+
+  // Saldo = renda - líquido
+  const saldoPorMes = liquidoPorMes.map(l=>renda-l);
+
+  const tfTds = totaisPorMes.map((t,i)=>{
+    const mk = meses[i]; const isAtual = mk===mesAtualKey;
+    return `<td class="plan-val plan-red" style="${isAtual?'background:rgba(91,141,238,0.06)':''}">${R(t)}</td>`;
+  }).join('');
+
+  const temReemb = reembPorMes.some(v=>v>0);
+  const reembTds = reembPorMes.map((v,i)=>{
+    const mk=meses[i]; const isAtual=mk===mesAtualKey;
+    return `<td class="plan-val plan-green" style="${isAtual?'background:rgba(91,141,238,0.06)':''}">${v>0?R(v):'<span style="opacity:.3">—</span>'}</td>`;
+  }).join('');
+
+  const liquidoTds = liquidoPorMes.map((v,i)=>{
+    const mk=meses[i]; const isAtual=mk===mesAtualKey;
+    return `<td class="plan-val plan-blue" style="${isAtual?'background:rgba(91,141,238,0.06)':''}">${R(v)}</td>`;
+  }).join('');
+
+  const saldoTds = saldoPorMes.map((v,i)=>{
+    const mk=meses[i]; const isAtual=mk===mesAtualKey;
+    return `<td class="plan-val ${v>=0?'plan-green':'plan-red'}" style="${isAtual?'background:rgba(91,141,238,0.06)':''}">${R(v)}</td>`;
+  }).join('');
+
+  // ── Montar HTML ──────────────────────────────────────────────
+  const hasFixas   = fixas.length > 0;
+  const hasVars    = vars.length  > 0;
+  const hasLotes   = true; // sempre mostra lotes (mesmo que zero)
+  const hasCartoes = cartoesComLanc.length > 0;
+  const hasCustom  = itensPlanejamento.length > 0;
+
+  wrap.innerHTML = `
+    <table class="plan-table">
+      <thead><tr>
+        <th>Item de desembolso</th>
+        ${thMeses}
+      </tr></thead>
+      <tbody>
+        ${hasFixas ? groupHeader('Despesas fixas & dívidas','📋','var(--accent)') + rowsFixas : ''}
+        ${hasVars  ? groupHeader('Despesas variáveis','🔄','var(--amber)') + rowsVars : ''}
+        ${groupHeader('Lotes Corumbá 4','🏡','var(--purple)') + rowsLote07 + rowsLote15}
+        ${hasCartoes ? groupHeader('Cartões de crédito','💳','var(--red)') + rowsCartoes : ''}
+        ${temAvulsos ? groupHeader('Compromissos avulsos','📝','var(--green)') + rowsAvulsos : ''}
+        ${hasCustom  ? groupHeader('Itens adicionados','➕','var(--teal)') + rowsCustom : ''}
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>💸 Total desembolso previsto</td>
+          ${tfTds}
+        </tr>
+        ${temReemb?`<tr class="plan-tfoot-reimb">
+          <td>↩ Reembolsos previstos (cartões)</td>
+          ${reembTds}
+        </tr>`:''}
+        <tr class="plan-tfoot-liquido">
+          <td>${temReemb?'Desembolso líquido':'Total líquido'}</td>
+          ${liquidoTds}
+        </tr>
+        <tr class="plan-tfoot-saldo">
+          <td>💰 Saldo livre estimado (renda − desembolso)</td>
+          ${saldoTds}
+        </tr>
+      </tfoot>
+    </table>
+    <div style="margin-top:8px;font-size:11px;color:var(--text3)">
+      💡 <span style="color:var(--red)">Vermelho</span> = saídas previstas · <span style="color:var(--amber)">Âmbar</span> = despesas variáveis · <span style="color:var(--purple)">Roxo</span> = lotes · <span style="color:var(--green)">Verde</span> = reembolsos/saldo positivo · Use <b>+ Novo item</b> para adicionar planejamento customizado (consórcios, investimentos, etc.).
+    </div>`;
+}
+
 function renderMensal(){
   const{renda}=getInfo();
   const totalDesp=despesas.reduce((s,d)=>s+d.val,0);
@@ -2252,9 +3104,12 @@ function renderMensal(){
   const entL15 = getEntradaLoteMes(LOTE15, mesSelKey);
   const menL07 = getParcelaMensalLote(LOTE07, mesSelKey, l7iM);
   const menL15 = getParcelaMensalLote(LOTE15, mesSelKey, l15iM);
-  const totalLotes = entL07 + entL15 + menL07 + menL15;
-  const totalFixos = totalDesp;
-  const totalMes = totalFixos + totalLotes + totAvulsos;
+  const totalLotes   = entL07 + entL15 + menL07 + menL15;
+  const totalFixos   = totalDesp;
+  const totalCartoes = lancamentos.filter(l=>l.mes===mesSelKey).reduce((s,l)=>s+l.val,0);
+  const totalReembMes = lancamentos.filter(l=>l.mes===mesSelKey&&(l.reimb||0)>0).reduce((s,l)=>s+(l.reimb||0),0);
+  const totalCustomMes = itensPlanejamento.reduce((s,it)=>s+getValItemPlano(it,mesSelKey),0);
+  const totalMes = totalFixos + totalLotes + totalCartoes + totAvulsos + totalCustomMes;
 
   // Somar status de pagamento de todos os itens do painel
   const gruposM = getGruposDesembolso(mesSelKey);
@@ -2269,83 +3124,24 @@ function renderMensal(){
   });
   const mEfetivo = mPago+mParcPago;
   document.getElementById('mensal-metrics').innerHTML=`
-    <div class="metric"><div class="metric-label">Total previsto</div><div class="metric-val v-red">${R(totalMes)}</div></div>
+    <div class="metric"><div class="metric-label">💸 Total previsto</div><div class="metric-val v-red">${R(totalMes)}</div></div>
     <div class="metric"><div class="metric-label">✅ Efetivamente pago</div><div class="metric-val v-green">${R(mEfetivo)}</div></div>
-    <div class="metric"><div class="metric-label">⏳ Ainda pendente</div><div class="metric-val v-red">${R(totalMes-mEfetivo)}</div></div>
-    <div class="metric"><div class="metric-label">Lotes (entradas+mensais)</div><div class="metric-val v-purple">${R(totalLotes)}</div></div>
-    <div class="metric"><div class="metric-label">Saldo livre previsto</div><div class="metric-val ${renda-totalMes>=0?'v-green':'v-red'}">${R(renda-totalMes)}</div></div>
-    <div class="metric"><div class="metric-label">% renda comprometida</div><div class="metric-val ${renda>0&&totalMes/renda>0.8?'v-red':renda>0&&totalMes/renda>0.6?'v-amber':'v-green'}">${renda>0?(totalMes/renda*100).toFixed(1):0}%</div></div>`;
+    <div class="metric"><div class="metric-label">⏳ Ainda pendente</div><div class="metric-val v-red">${R(Math.max(0,totalMes-mEfetivo))}</div></div>
+    <div class="metric"><div class="metric-label">🏡 Lotes (entradas+mensais)</div><div class="metric-val v-purple">${R(totalLotes)}</div></div>
+    <div class="metric"><div class="metric-label">💳 Faturas cartões</div><div class="metric-val v-red">${R(totalCartoes)}</div></div>
+    ${totalReembMes>0?`<div class="metric"><div class="metric-label">↩ Reembolsos previstos</div><div class="metric-val v-green">+ ${R(totalReembMes)}</div></div>`:''}
+    <div class="metric"><div class="metric-label">💰 Saldo livre previsto</div><div class="metric-val ${renda-(totalMes-totalReembMes)>=0?'v-green':'v-red'}">${R(renda-(totalMes-totalReembMes))}</div></div>
+    <div class="metric"><div class="metric-label">📊 % renda comprometida</div><div class="metric-val ${renda>0&&(totalMes-totalReembMes)/renda>0.8?'v-red':renda>0&&(totalMes-totalReembMes)/renda>0.6?'v-amber':'v-green'}">${renda>0?((totalMes-totalReembMes)/renda*100).toFixed(1):0}%</div></div>`;
 
   // Renderiza o painel de desembolso detalhado
   renderDesembolsoPanel(mesSel);
 
-  // Resumo dos compromissos avulsos
-  document.getElementById('men-resumo').innerHTML=`
-    <div style="font-size:13px">
-      <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border)"><span style="color:var(--text2)">Itens lançados</span><b>${arrSel.length}</b></div>
-      <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border)"><span style="color:var(--text2)">Total avulso</span><b class="mono v-blue">${R(totAvulsos)}</b></div>
-      <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border)"><span style="color:var(--green)">✅ Pago</span><b class="mono v-green">${R(totAvulsosPago)}</b></div>
-      <div style="display:flex;justify-content:space-between;padding:5px 0"><span style="color:var(--red)">⏳ Pendente</span><b class="mono v-red">${R(totAvulsosPend)}</b></div>
-      ${arrSel.length===0?'<div class="box-b" style="margin-top:10px;font-size:12px">💡 Adicione gastos extras, faturas ou imprevistos aqui</div>':''}
-    </div>`;
-
-  // Lista histórica de meses (compacta)
-  const allKeys=new Set();
-  for(let i=0;i<12;i++){
-    const d=new Date(hoje.getFullYear(),hoje.getMonth()+i,1);
-    allKeys.add(getMesKey(d.getFullYear(),d.getMonth()));
-  }
-  Object.keys(compromissos).forEach(k=>allKeys.add(k));
-  const sortedKeys=[...allKeys].sort();
-
-  const statusInfo={
-    pago:{label:'✅ Pago',cls:'b-pago',dot:'dot-pago'},
-    pendente:{label:'⏳ Pendente',cls:'b-pend',dot:'dot-pend'},
-    parcial:{label:'🔶 Parcial',cls:'b-parc',dot:'dot-parc'},
-  };
-
-  const listEl=document.getElementById('meses-list');
-  listEl.innerHTML=sortedKeys.map(key=>{
-    const arr=compromissos[key]||[];
-    const pago=arr.filter(c=>c.status==='pago').reduce((s,c)=>s+c.val,0);
-    const pend=arr.filter(c=>c.status==='pendente').reduce((s,c)=>s+c.val,0);
-    const parc=arr.filter(c=>c.status==='parcial').reduce((s,c)=>s+c.val,0);
-    const total=arr.reduce((s,c)=>s+c.val,0);
-    const isAtual=key===getMesKey(hoje.getFullYear(),hoje.getMonth());
-    const isSel=key===mesSel;
-    return `<div class="mes-card${isSel?' expanded':''}" id="mescard-${key}" onclick="toggleMes('${key}')">
-      <div class="mes-header">
-        <div class="mes-nome">
-          ${isAtual?'📌 ':isSel?'👁 ':''}${getMesLabel(key)}
-          ${isAtual?'<span class="badge b-fix" style="font-size:10px">Atual</span>':''}
-          ${arr.length>0?`<span style="font-size:11px;color:var(--text3)">(${arr.length} avulso${arr.length!==1?'s':''})</span>`:''}
-        </div>
-        <div style="display:flex;align-items:center;gap:10px">
-          ${arr.length>0?`<span class="mono" style="font-size:13px;color:${pend>0?'var(--red)':'var(--green)'}">${pend>0?R(pend)+' pend.':'Pago'}</span>`:'<span style="color:var(--text3);font-size:12px">Sem avulsos</span>'}
-          <span class="mes-chevron">▼</span>
-        </div>
-      </div>
-      <div class="mes-detail">
-        ${arr.length===0?`<p style="color:var(--text3);font-size:12px;padding:8px 0">Sem compromissos avulsos neste mês.</p>`:''}
-        ${arr.map((c,i)=>`
-          <div class="mes-item">
-            <div class="mes-item-left">
-              <div class="status-dot ${statusInfo[c.status]?.dot||'dot-pend'}"></div>
-              <div>
-                <div style="font-weight:500">${c.desc}</div>
-                <div style="font-size:11px;color:var(--text3)">${c.cat}</div>
-              </div>
-            </div>
-            <div style="display:flex;align-items:center;gap:8px">
-              <span class="mono" style="color:var(--red)">${R(c.val)}</span>
-              <button class="badge ${statusInfo[c.status]?.cls||'b-pend'}" style="cursor:pointer;border:none;font-size:10px" onclick="event.stopPropagation();toggleStatus('${key}',${i})">${statusInfo[c.status]?.label||'⏳ Pendente'}</button>
-              <button class="btn-del" onclick="event.stopPropagation();delCompromisso('${key}',${i})">×</button>
-            </div>
-          </div>`).join('')}
-      </div>
-    </div>`;
-  }).join('');
+  // Renderiza tabela horizontal de planejamento
+  renderPlanoMesAMes();
 }
+
+// Stub para compatibilidade (não tem mais men-resumo nem meses-list)
+
 
 
 // ── Cartões ──────────────────────────────────────────────────
@@ -2395,15 +3191,26 @@ function renderCartoes(){
   const tg=Object.values(faturasMes).reduce((s,v)=>s+v,0);
   const pct=tl>0?(tg/tl*100).toFixed(1):0;
 
-  // Total geral de todos os lançamentos futuros a partir deste mês
-  const totalFuturo = lancamentos.filter(l=>l.mes>=mesSel).reduce((s,l)=>s+l.val,0);
+  // Valor comprometido por cartão = soma de TODOS os lançamentos futuros (a partir do mês atual)
+  // independente do mês selecionado no filtro
+  const mesAtualKey = getMesKey(hoje.getFullYear(), hoje.getMonth());
+  const comprometidoPorCartao = {};
+  cartoes.forEach((_,i)=>{ comprometidoPorCartao[i]=0; });
+  lancamentos.filter(l=>l.mes>=mesAtualKey).forEach(l=>{
+    comprometidoPorCartao[l.cart]=(comprometidoPorCartao[l.cart]||0)+l.val;
+  });
+  // Saldo livre real = limite - comprometido (parcelas futuras de cada cartão)
+  const saldoLivrePorCartao = cartoes.map((c,i)=>Math.max(0, c.limite - (comprometidoPorCartao[i]||0)));
+  const totalComprometido = Object.values(comprometidoPorCartao).reduce((s,v)=>s+v,0);
+  const totalSaldoLivre = saldoLivrePorCartao.reduce((s,v)=>s+v,0);
+  const pctComp = tl>0?(totalComprometido/tl*100).toFixed(1):0;
 
   document.getElementById('cart-metrics').innerHTML=`
     <div class="metric"><div class="metric-label">Faturas em ${getMesLabel(mesSel)}</div><div class="metric-val v-red">${R(tg)}</div></div>
     <div class="metric"><div class="metric-label">Limite total</div><div class="metric-val v-blue">${R(tl)}</div></div>
-    <div class="metric"><div class="metric-label">Disponível (mês)</div><div class="metric-val ${tl>0&&tl-tg<0?'v-red':'v-green'}">${R(Math.max(0,tl-tg))}</div></div>
-    <div class="metric"><div class="metric-label">Comprometimento</div><div class="metric-val ${parseFloat(pct)>80?'v-red':parseFloat(pct)>50?'v-amber':'v-green'}">${pct}%</div></div>
-    <div class="metric"><div class="metric-label">Parcelas futuras (total)</div><div class="metric-val v-amber">${R(totalFuturo)}</div></div>`;
+    <div class="metric"><div class="metric-label">Comprometido (futuro)</div><div class="metric-val v-amber">${R(totalComprometido)}</div></div>
+    <div class="metric"><div class="metric-label">Saldo livre real</div><div class="metric-val ${totalSaldoLivre>0?'v-green':'v-red'}">${R(totalSaldoLivre)}</div></div>
+    <div class="metric"><div class="metric-label">% comprometido do limite</div><div class="metric-val ${parseFloat(pctComp)>80?'v-red':parseFloat(pctComp)>50?'v-amber':'v-green'}">${pctComp}%</div></div>`;
 
   // Programação mensal por cartão
   const wrap=document.getElementById('cart-programacao');
@@ -2417,8 +3224,11 @@ function renderCartoes(){
         lancamentos.filter(l=>l.cart===ci && l.mes>mesSel).map(l=>l.mes)
       )].sort().slice(0,6);
 
-      const p=c.limite>0?Math.min(totalNoMes/c.limite*100,100):0;
-      const cor=p>80?'var(--red)':p>50?'var(--amber)':'var(--teal)';
+      const comprometidoCartao = comprometidoPorCartao[ci]||0;
+      const saldoLivreCartao = Math.max(0, c.limite - comprometidoCartao);
+      const pComp=c.limite>0?Math.min(comprometidoCartao/c.limite*100,100):0;
+      const pMes=c.limite>0?Math.min(totalNoMes/c.limite*100,100):0;
+      const cor=pComp>80?'var(--red)':pComp>50?'var(--amber)':'var(--teal)';
 
       return`<div class="cart-card" style="margin-bottom:1rem">
         <div class="cart-hd">
@@ -2432,8 +3242,12 @@ function renderCartoes(){
             <button class="btn-del" onclick="delCartao(${ci})">×</button>
           </div>
         </div>
-        ${c.limite>0?`<div class="prog-track"><div class="prog-fill" style="width:${p.toFixed(1)}%;background:${cor}"></div></div>
-        <div style="font-size:11px;color:var(--text3);margin-bottom:8px">${p.toFixed(1)}% do limite · disponível: ${R(c.limite-totalNoMes)}</div>`
+        ${c.limite>0?`
+        <div class="prog-track"><div class="prog-fill" style="width:${pComp.toFixed(1)}%;background:${cor}"></div></div>
+        <div style="display:flex;gap:12px;font-size:11px;color:var(--text3);margin-bottom:8px;flex-wrap:wrap">
+          <span>Comprometido: <b style="color:${cor};font-family:'DM Mono',monospace">${R(comprometidoCartao)}</b> (${pComp.toFixed(1)}% do limite)</span>
+          <span>· Saldo livre: <b style="color:${saldoLivreCartao>0?'var(--green)':'var(--red)'};font-family:'DM Mono',monospace">${R(saldoLivreCartao)}</b></span>
+        </div>`
         :''}
         ${lancsNoMes.length>0?`
         <div style="margin-bottom:8px">
@@ -2448,10 +3262,13 @@ function renderCartoes(){
               ${lancsNoMes.map((l,li)=>{
                 const ri = lancamentos.findIndex(x=>x===l);
                 return`<tr>
-                  <td style="padding:5px 6px;border-bottom:1px solid var(--border)">${l.desc}</td>
+                  <td style="padding:5px 6px;border-bottom:1px solid var(--border)">${l.desc}${l.reimb>0?`<span style="font-size:10px;margin-left:5px;color:var(--green);background:rgba(62,207,142,0.12);padding:1px 5px;border-radius:3px">↩ ${R(l.reimb)}</span>`:''}</td>
                   <td style="padding:5px 6px;border-bottom:1px solid var(--border);color:var(--text3)">${l.cat||'—'}</td>
                   <td style="padding:5px 6px;border-bottom:1px solid var(--border);text-align:right;font-family:'DM Mono',monospace;color:var(--red)">${R(l.val)}</td>
-                  <td style="padding:5px 6px;border-bottom:1px solid var(--border)"><button class="btn-del" onclick="delLancamento(${ri})">×</button></td>
+                  <td style="padding:5px 6px;border-bottom:1px solid var(--border);white-space:nowrap">
+                    <button class="btn-edit btn-sm" onclick="editLancamento(${ri})" title="Editar">✏</button>
+                    <button class="btn-del" onclick="delLancamento(${ri})">×</button>
+                  </td>
                 </tr>`;
               }).join('')}
               <tr style="font-weight:700">
@@ -2459,6 +3276,16 @@ function renderCartoes(){
                 <td style="padding:6px 6px 2px;text-align:right;font-family:'DM Mono',monospace;color:var(--red)">${R(totalNoMes)}</td>
                 <td></td>
               </tr>
+              ${lancsNoMes.some(l=>l.reimb>0)?`<tr>
+                <td colspan="2" style="padding:3px 6px 6px;font-size:11px;color:var(--green)">↩ Reembolsos previstos neste mês</td>
+                <td style="padding:3px 6px 6px;text-align:right;font-family:'DM Mono',monospace;font-size:11px;color:var(--green)">+ ${R(lancsNoMes.reduce((s,l)=>s+(l.reimb||0),0))}</td>
+                <td></td>
+              </tr>
+              <tr style="font-weight:700">
+                <td colspan="2" style="padding:3px 6px 6px;font-size:12px;color:var(--text2)">Líquido (após reembolsos)</td>
+                <td style="padding:3px 6px 6px;text-align:right;font-family:'DM Mono',monospace;color:var(--amber)">${R(Math.max(0,totalNoMes - lancsNoMes.reduce((s,l)=>s+(l.reimb||0),0)))}</td>
+                <td></td>
+              </tr>`:''}
             </tbody>
           </table>
         </div>`
@@ -2543,28 +3370,115 @@ function addLancamento(){
   const mes=document.getElementById('lanc-mes')?.value || getMesKey(hoje.getFullYear(),hoje.getMonth());
   const desc=document.getElementById('lanc-desc').value.trim();
   const val=parseFloat(document.getElementById('lanc-val').value)||0;
+  const reimb=parseFloat(document.getElementById('lanc-reimb')?.value)||0;
   const cat=document.getElementById('lanc-cat').value||'Geral';
   if(isNaN(cart)||!val||!cartoes[cart]||!desc)return;
-  lancamentos.push({cart,mes,desc,val,cat});
+  lancamentos.push({cart,mes,desc,val,reimb,cat});
   document.getElementById('lanc-desc').value='';
   document.getElementById('lanc-val').value='';
+  const reimbEl=document.getElementById('lanc-reimb');
+  if(reimbEl) reimbEl.value='';
   // Atualizar mês do select para o mesmo mês lançado
   const csel=document.getElementById('cart-mes');
   if(csel)csel.value=mes;
-  renderCartoes();marcarAlterado();
+  renderCartoes();renderPlanoMesAMes();marcarAlterado();
 }
 function delLancamento(i){
   lancamentos.splice(i,1);
-  renderCartoes();marcarAlterado();
+  renderCartoes();renderPlanoMesAMes();marcarAlterado();
+}
+
+function editLancamento(i){
+  const l = lancamentos[i];
+  if(!l) return;
+  // Criar modal de edição inline
+  const overlay = document.createElement('div');
+  overlay.id = 'edit-lanc-overlay';
+  overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:9998;display:flex;align-items:center;justify-content:center;padding:1.5rem';
+  overlay.innerHTML = `
+    <div style="background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius);padding:1.6rem;width:100%;max-width:480px;box-shadow:0 24px 60px rgba(0,0,0,0.5)">
+      <div style="font-size:15px;font-weight:600;margin-bottom:1.2rem;display:flex;justify-content:space-between;align-items:center">
+        ✏️ Editar lançamento
+        <button onclick="document.getElementById('edit-lanc-overlay').remove()" style="background:none;border:none;color:var(--text3);font-size:20px;cursor:pointer;line-height:1">×</button>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <label style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:.5px">Cartão</label>
+          <select id="el-cart" style="width:100%">${cartoes.map((c,ci)=>`<option value="${ci}" ${ci===l.cart?'selected':''}>${c.nome}</option>`).join('')}</select>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <label style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:.5px">Mês da fatura</label>
+          <select id="el-mes" style="width:100%"></select>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <label style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:.5px">Descrição</label>
+          <input type="text" id="el-desc" value="${l.desc}" style="width:100%">
+        </div>
+        <div style="display:flex;gap:10px">
+          <div style="flex:1;display:flex;flex-direction:column;gap:4px">
+            <label style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:.5px">Valor (R$)</label>
+            <input type="number" id="el-val" value="${l.val}" min="0" step="0.01" style="width:100%">
+          </div>
+          <div style="flex:1;display:flex;flex-direction:column;gap:4px">
+            <label style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:.5px">Reembolso previsto (R$)</label>
+            <input type="number" id="el-reimb" value="${l.reimb||0}" min="0" step="0.01" style="width:100%" placeholder="0,00">
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <label style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:.5px">Categoria</label>
+          <select id="el-cat" style="width:100%">
+            ${['Compras','Mercado','Alimentação','Saúde','Transporte','Serviços','Casa','Viagem','Beleza','Família','Taxas','Geral'].map(c=>`<option value="${c}" ${c===l.cat?'selected':''}>${c}</option>`).join('')}
+          </select>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:6px">
+          <button onclick="salvarEdicaoLanc(${i})" class="btn btn-p" style="flex:1;justify-content:center">💾 Salvar alterações</button>
+          <button onclick="document.getElementById('edit-lanc-overlay').remove()" class="btn" style="flex:0 0 auto;background:var(--bg3);border:1px solid var(--border2);color:var(--text2)">Cancelar</button>
+        </div>
+      </div>
+    </div>`;
+  document.body.appendChild(overlay);
+  // Popular select de meses
+  const elMes = document.getElementById('el-mes');
+  const mesesComLanc = [...new Set(lancamentos.map(lx=>lx.mes))].sort();
+  const mesMinimo = mesesComLanc[0] || getMesKey(hoje.getFullYear(),hoje.getMonth());
+  const [myMin,mmMin] = mesMinimo.split('-').map(Number);
+  const mesAtual = getMesKey(hoje.getFullYear(),hoje.getMonth());
+  const [myA,mmA] = mesAtual.split('-').map(Number);
+  const totalM = (myA - myMin)*12 + (mmA - mmMin) + 14 + 1;
+  for(let k=0; k<totalM; k++){
+    const d2=new Date(myMin, mmMin-1+k, 1);
+    const key=getMesKey(d2.getFullYear(),d2.getMonth());
+    const opt=document.createElement('option');
+    opt.value=key; opt.textContent=getMesLabel(key);
+    if(key===l.mes) opt.selected=true;
+    elMes.appendChild(opt);
+  }
+  overlay.addEventListener('click', e=>{ if(e.target===overlay) overlay.remove(); });
+}
+
+function salvarEdicaoLanc(i){
+  const cart = parseInt(document.getElementById('el-cart').value);
+  const mes = document.getElementById('el-mes').value;
+  const desc = document.getElementById('el-desc').value.trim();
+  const val = parseFloat(document.getElementById('el-val').value)||0;
+  const reimb = parseFloat(document.getElementById('el-reimb').value)||0;
+  const cat = document.getElementById('el-cat').value;
+  if(!desc||!val||!cartoes[cart]) return;
+  lancamentos[i] = {...lancamentos[i], cart, mes, desc, val, reimb, cat};
+  document.getElementById('edit-lanc-overlay')?.remove();
+  renderCartoes();
+  renderDespesas();
+  marcarAlterado();
 }
 
 // ── Lotes ────────────────────────────────────────────────────
 function proj(base,ipca,anos){return base*Math.pow(1+(2+ipca)/100,anos);}
 
-function renderCronogramaCard(lote, ipca, elId){
+function renderCronogramaCard(lote, ipca, elId, filtroMesKey){
   const el = document.getElementById(elId);
   if(!el) return;
-  const hoje_key = getMesKey(hoje.getFullYear(), hoje.getMonth());
+  const hoje_key   = getMesKey(hoje.getFullYear(), hoje.getMonth());
+  const filtroKey  = filtroMesKey || hoje_key; // mês selecionado no filtro
   // Mostra do primeiro mês até 6 meses após o início das mensais
   const [my,mm] = lote.mesInicioMensal.split('-').map(Number);
   const fimExib_mm = mm + 5; // 6 meses de mensais para mostrar
@@ -2589,18 +3503,20 @@ function renderCronogramaCard(lote, ipca, elId){
     <div style="border-top:1px solid var(--border);padding-top:10px;margin-top:6px">
       <div style="font-size:10px;text-transform:uppercase;letter-spacing:.7px;color:var(--text3);margin-bottom:8px;font-weight:500">📅 Cronograma de pagamentos</div>
       ${itens.map(p=>{
-        const isPast    = p.mesKey < hoje_key;
-        const isCurrent = p.mesKey === hoje_key;
-        const isFut     = p.mesKey > hoje_key;
+        const isPast      = p.mesKey < hoje_key;
+        const isCurrent   = p.mesKey === hoje_key;
+        const isFiltrado  = p.mesKey === filtroKey && filtroKey !== hoje_key;
+        const isFut       = p.mesKey > hoje_key;
         const corVal = p.tipo==='entrada'
           ? (isPast?'var(--text3)':'var(--amber)')
           : (isPast?'var(--text3)':'var(--purple)');
-        const bg = isCurrent ? 'rgba(91,141,238,0.12)' : isPast ? 'transparent' : 'rgba(255,255,255,0.01)';
+        const bg = isCurrent ? 'rgba(91,141,238,0.12)' : isFiltrado ? 'rgba(167,139,250,0.12)' : isPast ? 'transparent' : 'rgba(255,255,255,0.01)';
         return `<div style="display:flex;justify-content:space-between;align-items:center;padding:5px 6px;border-radius:6px;background:${bg};margin-bottom:2px;opacity:${isPast?'.55':'1'}">
           <div style="display:flex;align-items:center;gap:6px">
             ${isCurrent?`<span style="font-size:9px;background:var(--accent);color:#fff;padding:1px 5px;border-radius:3px;font-weight:700">HOJE</span>`:''}
+            ${isFiltrado?`<span style="font-size:9px;background:var(--purple);color:#fff;padding:1px 5px;border-radius:3px;font-weight:700">FILTRO</span>`:''}
             ${isPast?`<span style="color:var(--green);font-size:11px">✓</span>`:''}
-            <span style="font-size:12px;color:${isCurrent?'var(--text)':isPast?'var(--text3)':'var(--text2)'};font-weight:${isCurrent?'600':'400'}">${getMesLabel(p.mesKey)}</span>
+            <span style="font-size:12px;color:${isCurrent?'var(--text)':isFiltrado?'var(--purple)':isPast?'var(--text3)':'var(--text2)'};font-weight:${(isCurrent||isFiltrado)?'600':'400'}">${getMesLabel(p.mesKey)}</span>
             <span style="font-size:10px;padding:1px 6px;border-radius:3px;background:${p.tipo==='entrada'?'rgba(246,173,85,0.15)':'rgba(167,139,250,0.15)'};color:${p.tipo==='entrada'?'var(--amber)':'var(--purple)'}">${p.label}</span>
             ${p.mesKey===lote.mesInicioMensal?`<span style="font-size:10px;color:var(--teal)">← início mensais</span>`:''}
           </div>
@@ -2613,34 +3529,212 @@ function renderCronogramaCard(lote, ipca, elId){
     </div>`;
 }
 
+// ── Estado da vista dos Lotes ────────────────────────────────
+let _loteVista = 'mes'; // 'mes' | 'acumulado'
+
+function setLoteVista(v){
+  _loteVista = v;
+  const btnMes  = document.getElementById('btn-lote-mes');
+  const btnAcum = document.getElementById('btn-lote-acum');
+  if(btnMes && btnAcum){
+    if(v === 'mes'){
+      btnMes.style.background  = 'var(--accent)';  btnMes.style.color  = '#fff'; btnMes.style.borderColor  = 'var(--accent)';
+      btnAcum.style.background = 'var(--bg3)';     btnAcum.style.color = 'var(--text2)'; btnAcum.style.borderColor = 'var(--border2)';
+    } else {
+      btnAcum.style.background = 'var(--accent)'; btnAcum.style.color = '#fff'; btnAcum.style.borderColor = 'var(--accent)';
+      btnMes.style.background  = 'var(--bg3)';    btnMes.style.color  = 'var(--text2)'; btnMes.style.borderColor  = 'var(--border2)';
+    }
+  }
+  renderLotes();
+}
+
+function initLotesMesFiltro(){
+  const sel = document.getElementById('lote-mes-filtro');
+  if(!sel) return;
+  const cur = sel.value;
+  sel.innerHTML = '';
+  // De mar/2026 até dez/2028 (cobre entradas + alguns anos de mensais)
+  const inicio = new Date(2026, 2, 1); // mar/2026
+  const fim    = new Date(2028, 11, 1); // dez/2028
+  let d = new Date(inicio);
+  while(d <= fim){
+    const key = getMesKey(d.getFullYear(), d.getMonth());
+    const opt = document.createElement('option');
+    opt.value = key; opt.textContent = getMesLabel(key);
+    // Default = mês atual
+    if(key === getMesKey(hoje.getFullYear(), hoje.getMonth())) opt.selected = true;
+    sel.appendChild(opt);
+    d.setMonth(d.getMonth()+1);
+  }
+  if(cur && sel.querySelector(`option[value="${cur}"]`)) sel.value = cur;
+}
+
 function renderLotes(){
+  initLotesMesFiltro();
   const l7i  = parseFloat(document.getElementById('l7-ipca').value)  || 4.5;
   const l15i = parseFloat(document.getElementById('l15-ipca').value) || 4.5;
-  const hoje_key = getMesKey(hoje.getFullYear(), hoje.getMonth());
+  const hoje_key    = getMesKey(hoje.getFullYear(), hoje.getMonth());
+  const filtroMes   = document.getElementById('lote-mes-filtro')?.value || hoje_key;
+  // Para 'mes': mostra só o mês selecionado. Para 'acumulado': acumula até o mês selecionado.
+  const corte = filtroMes; // mês de referência para cálculos
 
-  // Total pago até agora (só entradas que já passaram)
-  const l7pago  = getTotalPagoLote(LOTE07, hoje_key, l7i);
-  const l15pago = getTotalPagoLote(LOTE15, hoje_key, l15i);
+  // ── ACUMULADO EFETIVO: soma tudo que foi marcado pago/parcial em QUALQUER mês
+  //    (inclui adiantamentos de meses futuros, exclui vencidos não pagos)
+  function calcPagoLoteEfetivo(lote, ipcaVal, descEntrada, descMensal, descSinal){
+    let pago = 0;
+    // Varrer TODAS as entradas (sem limite de corte) — conta adiantamentos
+    Object.entries(lote.cronogramaEntrada).forEach(([mk, val]) => {
+      const desc = (descSinal && mk === '2026-03') ? descSinal : descEntrada;
+      const st = getStatusItem(mk, 'lotes', desc);
+      if     (st.status === 'pago')    pago += val;
+      else if(st.status === 'parcial') pago += (st.pago || 0);
+      // se não pago: NÃO soma (nem meses passados sem status)
+    });
+    // Varrer mensais a partir do início até o fim do cronograma (240 meses)
+    if(isLoteMensal(lote, corte) || true){
+      const [sy,sm] = lote.mesInicioMensal.split('-').map(Number);
+      for(let i=0;i<240;i++){
+        const m2=((sm-1+i)%12)+1, y2=sy+Math.floor((sm-1+i)/12);
+        const mk=`${y2}-${String(m2).padStart(2,'0')}`;
+        const val = getParcelaMensalLote(lote, mk, ipcaVal);
+        const st  = getStatusItem(mk, 'lotes', descMensal);
+        if     (st.status === 'pago')    pago += val;
+        else if(st.status === 'parcial') pago += (st.pago || 0);
+      }
+    }
+    return pago;
+  }
 
-  // Entradas pagas e a pagar
-  const l7entPago  = Object.entries(LOTE07.cronogramaEntrada).filter(([m])=>m<=hoje_key).reduce((s,[,v])=>s+v,0);
-  const l15entPago = Object.entries(LOTE15.cronogramaEntrada).filter(([m])=>m<=hoje_key).reduce((s,[,v])=>s+v,0);
+  // ── EFETIVO DO MÊS: só o que foi marcado pago/parcial NAQUELE mês específico
+  function calcPagoMesEfetivo(lote, ipcaVal, descEntrada, descMensal, descSinal){
+    let pago = 0;
+    // Entrada do mês selecionado
+    const entVal = lote.cronogramaEntrada[corte];
+    if(entVal){
+      const desc = (descSinal && corte === '2026-03') ? descSinal : descEntrada;
+      const st = getStatusItem(corte, 'lotes', desc);
+      if     (st.status === 'pago')    pago += entVal;
+      else if(st.status === 'parcial') pago += (st.pago || 0);
+    }
+    // Mensal do mês selecionado
+    if(isLoteMensal(lote, corte)){
+      const val = getParcelaMensalLote(lote, corte, ipcaVal);
+      const st  = getStatusItem(corte, 'lotes', descMensal);
+      if     (st.status === 'pago')    pago += val;
+      else if(st.status === 'parcial') pago += (st.pago || 0);
+    }
+    return pago;
+  }
+
+  // ── PENDENTES VENCIDOS: entradas/mensais passadas sem status pago
+  function calcAtrasadoLote(lote, ipcaVal, descEntrada, descMensal, descSinal){
+    let atrasado = 0;
+    Object.entries(lote.cronogramaEntrada).forEach(([mk, val]) => {
+      if(mk > hoje_key) return; // só vencidos
+      const desc = (descSinal && mk === '2026-03') ? descSinal : descEntrada;
+      const st = getStatusItem(mk, 'lotes', desc);
+      if(st.status === 'pendente') atrasado += val;
+      else if(st.status === 'parcial') atrasado += Math.max(0, val - (st.pago||0));
+    });
+    if(isLoteMensal(lote, hoje_key)){
+      const [sy,sm] = lote.mesInicioMensal.split('-').map(Number);
+      const [ey,em] = hoje_key.split('-').map(Number);
+      const nM = (ey-sy)*12+(em-sm)+1;
+      for(let i=0;i<nM;i++){
+        const m2=((sm-1+i)%12)+1, y2=sy+Math.floor((sm-1+i)/12);
+        const mk=`${y2}-${String(m2).padStart(2,'0')}`;
+        if(mk > hoje_key) break;
+        const val = getParcelaMensalLote(lote, mk, ipcaVal);
+        const st  = getStatusItem(mk, 'lotes', descMensal);
+        if(st.status === 'pendente') atrasado += val;
+        else if(st.status === 'parcial') atrasado += Math.max(0, val - (st.pago||0));
+      }
+    }
+    return atrasado;
+  }
+
+  // Acumulado efetivo (qualquer mês pago, incluindo adiantamentos)
+  const l7pago  = _loteVista === 'acumulado'
+    ? calcPagoLoteEfetivo(LOTE07, l7i,  'Lote 07 — parcela de entrada', 'Lote 07 — mensalidade', null)
+    : calcPagoMesEfetivo(LOTE07, l7i,   'Lote 07 — parcela de entrada', 'Lote 07 — mensalidade', null);
+  const l15pago = _loteVista === 'acumulado'
+    ? calcPagoLoteEfetivo(LOTE15, l15i, 'Lote 15 — parcela de entrada', 'Lote 15 — mensalidade', 'Lote 15 — sinal')
+    : calcPagoMesEfetivo(LOTE15, l15i,  'Lote 15 — parcela de entrada', 'Lote 15 — mensalidade', 'Lote 15 — sinal');
+
+  // Para o acumulado completo usado nos cards de "entradas pagas/restantes"
+  const l7pagoAcum  = calcPagoLoteEfetivo(LOTE07, l7i,  'Lote 07 — parcela de entrada', 'Lote 07 — mensalidade', null);
+  const l15pagoAcum = calcPagoLoteEfetivo(LOTE15, l15i, 'Lote 15 — parcela de entrada', 'Lote 15 — mensalidade', 'Lote 15 — sinal');
+
+  // Atrasados vencidos e não pagos
+  const l7atrasado  = calcAtrasadoLote(LOTE07, l7i,  'Lote 07 — parcela de entrada', 'Lote 07 — mensalidade', null);
+  const l15atrasado = calcAtrasadoLote(LOTE15, l15i, 'Lote 15 — parcela de entrada', 'Lote 15 — mensalidade', 'Lote 15 — sinal');
+
+  // Entradas efetivamente pagas (considerando status real) e restantes
+  function calcEntradaEfetivaPaga(lote, descEntrada, descSinal){
+    let pago = 0;
+    Object.entries(lote.cronogramaEntrada).forEach(([mk, val]) => {
+      const desc = (descSinal && mk === '2026-03') ? descSinal : descEntrada;
+      const st = getStatusItem(mk, 'lotes', desc);
+      if     (st.status === 'pago')    pago += val;
+      else if(st.status === 'parcial') pago += (st.pago || 0);
+    });
+    return pago;
+  }
+
+  const l7entPago  = calcEntradaEfetivaPaga(LOTE07, 'Lote 07 — parcela de entrada', null);
+  const l15entPago = calcEntradaEfetivaPaga(LOTE15, 'Lote 15 — parcela de entrada', 'Lote 15 — sinal');
   const l7entRest  = Math.max(0, LOTE07.totalEntrada - l7entPago);
   const l15entRest = Math.max(0, LOTE15.totalEntrada - l15entPago);
 
-  document.getElementById('lote-metrics').innerHTML=`
-    <div class="metric"><div class="metric-label">Total investido até agora</div><div class="metric-val v-green">${R(l7pago+l15pago)}</div></div>
-    <div class="metric"><div class="metric-label">Lote 07 — pago</div><div class="metric-val v-purple">${R(l7pago)}</div></div>
-    <div class="metric"><div class="metric-label">Lote 15 — pago</div><div class="metric-val v-teal">${R(l15pago)}</div></div>
-    <div class="metric"><div class="metric-label">Entradas restantes L07</div><div class="metric-val v-red">${R(l7entRest)}</div></div>
-    <div class="metric"><div class="metric-label">Entradas restantes L15</div><div class="metric-val v-red">${R(l15entRest)}</div></div>
-    <div class="metric"><div class="metric-label">Parcelas mensais (fixas)</div><div class="metric-val v-amber">${R(LOTE07.parcelaMensal+LOTE15.parcelaMensal)}/mês</div></div>`;
+  // Desembolso efetivo do mês filtrado (só o que está marcado pago/parcial)
+  const l7mes  = calcPagoMesEfetivo(LOTE07, l7i,  'Lote 07 — parcela de entrada', 'Lote 07 — mensalidade', null);
+  const l15mes = calcPagoMesEfetivo(LOTE15, l15i, 'Lote 15 — parcela de entrada', 'Lote 15 — mensalidade', 'Lote 15 — sinal');
+  const totalMes = l7mes + l15mes;
+  const totalAtrasado = l7atrasado + l15atrasado;
+
+  const isMesAtual = corte === hoje_key;
+  const isFuturo   = corte > hoje_key;
+  const label = _loteVista === 'acumulado'
+    ? `Acumulado até ${getMesLabel(corte)}`
+    : `Desembolso em ${getMesLabel(corte)}`;
+
+  // ── Métricas ───────────────────────────────────────────────
+  if(_loteVista === 'acumulado'){
+    const atrasadoHtml = (totalAtrasado > 0)
+      ? `<div class="metric" style="border-color:rgba(245,101,101,0.4)"><div class="metric-label">⚠️ Vencido não pago</div><div class="metric-val v-red">${R(totalAtrasado)}</div></div>`
+      : `<div class="metric" style="border-color:rgba(62,207,142,0.3)"><div class="metric-label">✅ Sem pendências</div><div class="metric-val v-green">Em dia</div></div>`;
+    document.getElementById('lote-metrics').innerHTML=`
+      <div class="metric" style="border-color:rgba(62,207,142,0.35)"><div class="metric-label">💰 Total efetivamente pago</div><div class="metric-val v-green">${R(l7pago+l15pago)}</div></div>
+      <div class="metric"><div class="metric-label">Lote 07 — pago</div><div class="metric-val v-purple">${R(l7pago)}</div></div>
+      <div class="metric"><div class="metric-label">Lote 15 — pago</div><div class="metric-val v-teal">${R(l15pago)}</div></div>
+      <div class="metric"><div class="metric-label">Entradas restantes L07</div><div class="metric-val v-amber">${R(l7entRest)}</div></div>
+      <div class="metric"><div class="metric-label">Entradas restantes L15</div><div class="metric-val v-amber">${R(l15entRest)}</div></div>
+      ${atrasadoHtml}`;
+  } else {
+    // Vista de mês: só o que foi efetivamente pago naquele mês
+    const tipoL07 = lote07EntDes => lote07EntDes > 0 ? 'Entrada' : isLoteMensal(LOTE07,corte) ? 'Mensal' : '—';
+    const tipoL15 = lote15EntDes => lote15EntDes > 0 ? 'Entrada' : isLoteMensal(LOTE15,corte) ? 'Mensal' : '—';
+    const tL07 = LOTE07.cronogramaEntrada[corte] ? 'Entrada' : isLoteMensal(LOTE07,corte) ? 'Mensal' : '—';
+    const tL15 = LOTE15.cronogramaEntrada[corte] ? (corte==='2026-03'?'Sinal':'Entrada') : isLoteMensal(LOTE15,corte) ? 'Mensal' : '—';
+    const mesLabel = getMesLabel(corte);
+    const corL07 = l7mes > 0 ? (LOTE07.cronogramaEntrada[corte] ? 'v-amber' : 'v-purple') : 'v-red';
+    const corL15 = l15mes > 0 ? (LOTE15.cronogramaEntrada[corte] ? 'v-amber' : 'v-teal') : 'v-red';
+    const atrasadoHtml2 = (totalAtrasado > 0)
+      ? `<div class="metric" style="border-color:rgba(245,101,101,0.4)"><div class="metric-label">⚠️ Vencido não pago (total)</div><div class="metric-val v-red">${R(totalAtrasado)}</div></div>`
+      : `<div class="metric" style="border-color:rgba(62,207,142,0.3)"><div class="metric-label">✅ Sem pendências vencidas</div><div class="metric-val v-green">Em dia</div></div>`;
+    document.getElementById('lote-metrics').innerHTML=`
+      <div class="metric" style="border-color:rgba(62,207,142,0.35)"><div class="metric-label">💰 Pago efetivo em ${mesLabel}</div><div class="metric-val ${totalMes>0?'v-green':'v-red'}">${totalMes>0?R(totalMes):'Nenhum'}</div></div>
+      <div class="metric"><div class="metric-label">Lote 07 — ${tL07}</div><div class="metric-val ${corL07}">${l7mes>0?R(l7mes):'Não pago'}</div></div>
+      <div class="metric"><div class="metric-label">Lote 15 — ${tL15}</div><div class="metric-val ${corL15}">${l15mes>0?R(l15mes):'Não pago'}</div></div>
+      <div class="metric"><div class="metric-label">Total pago acumulado</div><div class="metric-val v-green">${R(l7pagoAcum+l15pagoAcum)}</div></div>
+      ${atrasadoHtml2}`;
+  }
 
   // Cronogramas visuais
-  renderCronogramaCard(LOTE07, l7i, 'l7-cronograma');
-  renderCronogramaCard(LOTE15, l15i, 'l15-cronograma');
+  renderCronogramaCard(LOTE07, l7i, 'l7-cronograma', corte);
+  renderCronogramaCard(LOTE15, l15i, 'l15-cronograma', corte);
 
-  // Projeções das parcelas mensais (a partir do ano 1 de reajuste)
+  // Projeções das parcelas mensais
   document.getElementById('l7-ano5').textContent  = R(proj(LOTE07.parcelaMensal, l7i, 5));
   document.getElementById('l7-ano10').textContent = R(proj(LOTE07.parcelaMensal, l7i, 10));
   document.getElementById('l7-ano20').textContent = R(proj(LOTE07.parcelaMensal, l7i, 20));
@@ -2648,7 +3742,7 @@ function renderLotes(){
   document.getElementById('l15-ano10').textContent = R(proj(LOTE15.parcelaMensal, l15i, 10));
   document.getElementById('l15-ano20').textContent = R(proj(LOTE15.parcelaMensal, l15i, 20));
 
-  // Gráfico projeção parcelas mensais (após o fim das entradas)
+  // Gráfico projeção parcelas mensais
   const anos = Array.from({length:21},(_,i)=>i);
   const d7   = anos.map(a=>a===0?LOTE07.parcelaMensal:proj(LOTE07.parcelaMensal,l7i,a));
   const d15  = anos.map(a=>a===0?LOTE15.parcelaMensal:proj(LOTE15.parcelaMensal,l15i,a));
@@ -2672,7 +3766,7 @@ function renderLotes(){
       <div>
         <div style="font-weight:600;color:var(--purple);margin-bottom:8px">Lote 07</div>
         <div class="lote-row"><span style="color:var(--text2)">Total entrada (6×)</span><span class="mono">${R(LOTE07.totalEntrada)}</span></div>
-        <div class="lote-row"><span style="color:var(--text2)">Pago até agora</span><span class="mono v-green">${R(l7entPago)}</span></div>
+        <div class="lote-row"><span style="color:var(--text2)">Pago efetivo (entradas)</span><span class="mono v-green">${R(l7entPago)}</span></div>
         <div class="lote-row"><span style="color:var(--text2)">Restante entrada</span><span class="mono v-red">${R(l7entRest)}</span></div>
         <div class="lote-row"><span style="color:var(--text2)">Entradas: mar → ago/2026</span><span class="mono">6× ${R(LOTE07.cronogramaEntrada['2026-03'])}</span></div>
         <div class="lote-row"><span style="color:var(--text2)">Mensais a partir de</span><span class="mono v-purple">Set/2026 · ${R(LOTE07.parcelaMensal)}/mês</span></div>
@@ -2682,11 +3776,11 @@ function renderLotes(){
       <div>
         <div style="font-weight:600;color:var(--teal);margin-bottom:8px">Lote 15</div>
         <div class="lote-row"><span style="color:var(--text2)">Total entrada</span><span class="mono">${R(LOTE15.totalEntrada)}</span></div>
-        <div class="lote-row"><span style="color:var(--text2)">Pago até agora</span><span class="mono v-green">${R(l15entPago)}</span></div>
+        <div class="lote-row"><span style="color:var(--text2)">Pago efetivo (entradas)</span><span class="mono v-green">${R(l15entPago)}</span></div>
         <div class="lote-row"><span style="color:var(--text2)">Restante entrada</span><span class="mono v-red">${R(l15entRest)}</span></div>
         <div class="lote-row"><span style="color:var(--text2)">Mar/26: sinal</span><span class="mono v-green">${R(1000)}</span></div>
-        <div class="lote-row"><span style="color:var(--text2)">Mai/26: saldo 1ª parcela</span><span class="mono v-amber">${R(1037.71)}</span></div>
-        <div class="lote-row"><span style="color:var(--text2)">Jun–Out/26: 5 parcelas</span><span class="mono">5× ${R(2037.71)}</span></div>
+        <div class="lote-row"><span style="color:var(--text2)">Mai/26: complemento 1ª parcela</span><span class="mono v-amber">${R(2037.31)}</span></div>
+        <div class="lote-row"><span style="color:var(--text2)">Jun–Out/26: 5 parcelas</span><span class="mono">5× ${R(3037.31)}</span></div>
         <div class="lote-row"><span style="color:var(--text2)">Mensais a partir de</span><span class="mono v-teal">Nov/2026 · ${R(LOTE15.parcelaMensal)}/mês</span></div>
         <div class="lote-row"><span style="color:var(--text2)">Reajuste inicia em</span><span class="mono" style="color:var(--teal)">Jan/2027 · 2%+IPCA/ano</span></div>
         <div class="lote-row"><span style="color:var(--text2)">Total estimado 20 anos</span><span class="mono v-amber">${R(LOTE15.totalEntrada+d15.reduce((s,v)=>s+v,0)*12/12)}</span></div>
@@ -2696,21 +3790,33 @@ function renderLotes(){
       ⚠ Parcelas mensais combinadas: <b>${R(LOTE07.parcelaMensal+LOTE15.parcelaMensal)}/mês</b> (fixas até dez/2026). A partir de jan/2027 com reajuste médio ${(iavg+2).toFixed(1)}%/ano, chegarão a aprox. <b>${R(proj(LOTE07.parcelaMensal,l7i,20)+proj(LOTE15.parcelaMensal,l15i,20))}</b>/mês no ano 20.
     </div>`;
 
-  // Painel acumulado
-  const totalPago = l7pago + l15pago;
+  // ── Painel acumulado ───────────────────────────────────────
+  const totalPagoEfetivo = l7pagoAcum + l15pagoAcum;
   const totalEntradas = LOTE07.totalEntrada + LOTE15.totalEntrada;
-  const pctQuitado = totalEntradas > 0 ? (((l7entPago+l15entPago)/totalEntradas)*100).toFixed(1) : '0.0';
+  const pctQuitado = totalEntradas > 0 ? (((l7entPago + l15entPago) / totalEntradas) * 100).toFixed(1) : '0.0';
+  const atrasadoAlert = (totalAtrasado > 0)
+    ? `<div class="box-r" style="margin-top:10px;font-size:12px">⚠️ <b>${R(totalAtrasado)}</b> em parcelas vencidas e não pagas — regularize para evitar juros.</div>`
+    : '';
   document.getElementById('lotes-acumulado-wrap').innerHTML=`
     <div class="card" style="margin-bottom:1.2rem;background:linear-gradient(135deg,rgba(167,139,250,0.08),rgba(45,212,191,0.05))">
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--text3);margin-bottom:10px;font-weight:500">
+        ${_loteVista==='acumulado' ? '💰 Total efetivamente pago (todos os meses)' : '📅 Pago efetivo — ' + getMesLabel(corte)}
+      </div>
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;text-align:center">
         <div>
-          <div style="font-size:10px;text-transform:uppercase;letter-spacing:.7px;color:var(--text3);margin-bottom:4px">Total investido até agora</div>
-          <div style="font-size:22px;font-weight:700;font-family:'DM Mono',monospace;color:var(--green)">${R(totalPago)}</div>
-          <div style="font-size:11px;color:var(--text3);margin-top:2px">entradas + mensais pagas</div>
+          <div style="font-size:10px;text-transform:uppercase;letter-spacing:.7px;color:var(--text3);margin-bottom:4px">
+            ${_loteVista==='acumulado' ? 'Total pago (efetivo real)' : 'Pago em '+getMesLabel(corte)}
+          </div>
+          <div style="font-size:22px;font-weight:700;font-family:'DM Mono',monospace;color:var(--green)">
+            ${_loteVista==='acumulado' ? R(totalPagoEfetivo) : (totalMes>0 ? R(totalMes) : '—')}
+          </div>
+          <div style="font-size:11px;color:var(--text3);margin-top:2px">
+            ${_loteVista==='acumulado' ? `L07: ${R(l7pagoAcum)} · L15: ${R(l15pagoAcum)}` : `L07: ${R(l7mes)} · L15: ${R(l15mes)}`}
+          </div>
         </div>
         <div>
           <div style="font-size:10px;text-transform:uppercase;letter-spacing:.7px;color:var(--text3);margin-bottom:4px">Entradas ainda a pagar</div>
-          <div style="font-size:22px;font-weight:700;font-family:'DM Mono',monospace;color:var(--red)">${R(l7entRest+l15entRest)}</div>
+          <div style="font-size:22px;font-weight:700;font-family:'DM Mono',monospace;color:var(--amber)">${R(l7entRest+l15entRest)}</div>
           <div style="font-size:11px;color:var(--text3);margin-top:2px">L07: ${R(l7entRest)} · L15: ${R(l15entRest)}</div>
         </div>
         <div>
@@ -2722,168 +3828,475 @@ function renderLotes(){
       <div style="margin-top:12px">
         <div class="prog-track" style="height:8px"><div class="prog-fill" style="width:${Math.min(100,parseFloat(pctQuitado))}%;background:linear-gradient(90deg,var(--purple),var(--teal))"></div></div>
       </div>
+      ${atrasadoAlert}
     </div>`;
 }
 
+
+
+// ── Estado do dashboard ──────────────────────────────────────
+let _dashModo = 'mes'; // 'mes' | 'acumulado'
+let _dashMesSel = null; // null = usa mês atual
+
+function initDashMesSel(){
+  const sel = document.getElementById('dash-mes-sel');
+  if(!sel) return;
+  const cur = sel.value || _dashMesSel;
+  sel.innerHTML = '';
+  // Gerar de jan/2026 até 12 meses à frente
+  const inicio = {y:2026, m:0}; // jan/2026
+  const fim = new Date(hoje.getFullYear(), hoje.getMonth()+12, 1);
+  let d = new Date(inicio.y, inicio.m, 1);
+  while(d <= fim){
+    const key = getMesKey(d.getFullYear(), d.getMonth());
+    const opt = document.createElement('option');
+    opt.value = key; opt.textContent = getMesLabel(key);
+    sel.appendChild(opt);
+    d.setMonth(d.getMonth()+1);
+  }
+  // Default = mês atual
+  const defaultKey = cur || getMesKey(hoje.getFullYear(), hoje.getMonth());
+  if(sel.querySelector(`option[value="${defaultKey}"]`)) sel.value = defaultKey;
+  _dashMesSel = sel.value;
+}
+
+function setDashModo(modo){
+  _dashModo = modo;
+  const btnMes  = document.getElementById('dash-btn-mes');
+  const btnAcum = document.getElementById('dash-btn-acum');
+  const mesWrap = document.getElementById('dash-mes-wrap');
+  const acumLbl = document.getElementById('dash-acum-label');
+  if(modo === 'mes'){
+    btnMes.style.background  = 'var(--accent)'; btnMes.style.color  = '#fff';
+    btnAcum.style.background = 'none';          btnAcum.style.color = 'var(--text2)';
+    mesWrap.style.display = 'flex';
+    acumLbl.style.display = 'none';
+    document.getElementById('dash-modo-label').textContent = 'Visão mensal';
+  } else {
+    btnAcum.style.background = 'var(--accent)'; btnAcum.style.color = '#fff';
+    btnMes.style.background  = 'none';          btnMes.style.color  = 'var(--text2)';
+    mesWrap.style.display = 'none';
+    acumLbl.style.display = 'flex';
+    document.getElementById('dash-modo-label').textContent = 'Visão acumulada';
+  }
+  renderDashboard();
+}
+
+function navDashMes(delta){
+  const sel = document.getElementById('dash-mes-sel');
+  if(!sel) return;
+  const opts = Array.from(sel.options);
+  const idx  = opts.findIndex(o => o.value === sel.value);
+  const nidx = Math.max(0, Math.min(opts.length-1, idx+delta));
+  sel.value = opts[nidx].value;
+  _dashMesSel = sel.value;
+  renderDashboard();
+}
+
+function irParaMesAtualDash(){
+  const sel = document.getElementById('dash-mes-sel');
+  const key = getMesKey(hoje.getFullYear(), hoje.getMonth());
+  if(sel && sel.querySelector(`option[value="${key}"]`)) sel.value = key;
+  _dashMesSel = key;
+  renderDashboard();
+}
 
 // ── Dashboard ────────────────────────────────────────────────
 function renderDashboard(){
-  const{bruto,inss,irrf,totalDesc,liquido,totalBen,totalRE,renda,regime}=getInfo();
-  const ndep=dependentes.length;
-  const totalDesp=despesas.reduce((s,d)=>s+d.val,0);
-  const saldo=renda-totalDesp;
-  const pct=renda>0?(totalDesp/renda*100).toFixed(1):0;
-  // Lotes: mês atual + total acumulado já investido (inclui o mês corrente)
+  initDashMesSel();
+  const modo = _dashModo;
   const mesAtualKey = getMesKey(hoje.getFullYear(), hoje.getMonth());
+
+  // Mês selecionado no filtro (pode ser futuro para ver pagamentos antecipados)
+  const selMesKey = (document.getElementById('dash-mes-sel')?.value) || mesAtualKey;
+  _dashMesSel = selMesKey;
+
+  // Atualizar label do acumulado
+  const acumAteEl = document.getElementById('dash-acum-ate');
+  if(acumAteEl) acumAteEl.textContent = getMesLabel(selMesKey);
+
+  const{bruto,inss,irrf,totalDesc,liquido,totalBen,totalRE,renda,regime}=getInfo();
+  const ndep = dependentes.length;
   const ipca7  = parseFloat(document.getElementById('l7-ipca')?.value)  || 4.5;
   const ipca15 = parseFloat(document.getElementById('l15-ipca')?.value) || 4.5;
-  const lotesMesAtual =
-    getEntradaLoteMes(LOTE07, mesAtualKey) + getEntradaLoteMes(LOTE15, mesAtualKey) +
-    getParcelaMensalLote(LOTE07, mesAtualKey, ipca7) + getParcelaMensalLote(LOTE15, mesAtualKey, ipca15);
-  // Total investido = todas entradas até e incluindo o mês atual (já que o mês corrente foi pago)
-  const l7entPagoDash  = Object.entries(LOTE07.cronogramaEntrada).filter(([m])=>m<=mesAtualKey).reduce((s,[,v])=>s+v,0);
-  const l15entPagoDash = Object.entries(LOTE15.cronogramaEntrada).filter(([m])=>m<=mesAtualKey).reduce((s,[,v])=>s+v,0);
-  // Somar mensais pagas se já estiver nessa fase
-  const mensPagasL07 = isLoteMensal(LOTE07, mesAtualKey) ? getTotalPagoLote(LOTE07, mesAtualKey, ipca7) - l7entPagoDash : 0;
-  const mensPagasL15 = isLoteMensal(LOTE15, mesAtualKey) ? getTotalPagoLote(LOTE15, mesAtualKey, ipca15) - l15entPagoDash : 0;
-  const lotesTotalPago = l7entPagoDash + l15entPagoDash + mensPagasL07 + mensPagasL15;
+
+  // ── Totais reais até o mês selecionado ───────────────────────
+  // No modo 'mes': calcula até o mês selecionado (captura pagamentos adiantados)
+  // No modo 'acumulado': igual, até o mês selecionado
+  const tr = getTotaisReais(selMesKey);
+
+  const totalDespFixas = despesas.reduce((s,d)=>s+d.val,0);
+
+  // ── Lotes: previsto no mês selecionado ───────────────────────
+  const lotesSelMes =
+    getEntradaLoteMes(LOTE07, selMesKey) + getEntradaLoteMes(LOTE15, selMesKey) +
+    getParcelaMensalLote(LOTE07, selMesKey, ipca7) + getParcelaMensalLote(LOTE15, selMesKey, ipca15);
+
   const totalEntradas07_15 = LOTE07.totalEntrada + LOTE15.totalEntrada;
-  const pctLotes = totalEntradas07_15 > 0 ? ((( l7entPagoDash + l15entPagoDash )/totalEntradas07_15)*100).toFixed(1) : '0.0';
-  const lotesMes = lotesMesAtual;
+  const pctLotes = totalEntradas07_15 > 0
+    ? ((tr.acumLotes / totalEntradas07_15) * 100).toFixed(1) : '0.0';
 
-  // Cards overview
-  document.getElementById('dash-overview').innerHTML=`
-    <div class="ov-card blue">
-      <div class="ov-icon">💼</div>
-      <div class="ov-label">Renda total</div>
-      <div class="ov-val v-blue">${R(renda)}</div>
-      <div class="ov-sub">Líq. ${R(liquido)} + benef. ${R(totalBen)}${totalRE>0?' + extra '+R(totalRE):''}</div>
-    </div>
-    <div class="ov-card red">
-      <div class="ov-icon">📤</div>
-      <div class="ov-label">Total despesas</div>
-      <div class="ov-val v-red">${R(totalDesp)}</div>
-      <div class="ov-sub">${pct}% da renda comprometida</div>
-    </div>
-    <div class="ov-card ${saldo>=0?'green':'red'}">
-      <div class="ov-icon">${saldo>=0?'✅':'⚠️'}</div>
-      <div class="ov-label">Saldo disponível</div>
-      <div class="ov-val ${saldo>=0?'v-green':'v-red'}">${R(saldo)}</div>
-      <div class="ov-sub">${saldo>=0?'Margem livre este mês':'Déficit — atenção!'}</div>
-    </div>
-    ${totalRE>0?`<div class="ov-card green">
-      <div class="ov-icon">💸</div>
-      <div class="ov-label">Renda extra (mês)</div>
-      <div class="ov-val v-teal">${R(totalRE)}</div>
-      <div class="ov-sub">${rendaExtra.filter(r=>r.mes===getMesKey(hoje.getFullYear(),hoje.getMonth())).length} entrada(s) este mês</div>
-    </div>`:''}
-    <div class="ov-card amber">
-      <div class="ov-icon">🏡</div>
-      <div class="ov-label">Lotes — total investido</div>
-      <div class="ov-val v-purple">${R(lotesTotalPago)}</div>
-      <div class="ov-sub">Este mês: ${R(lotesMesAtual)} · ${pctLotes}% quitado</div>
-    </div>`;
+  const isMesAtual = selMesKey === mesAtualKey;
+  const isFuturo   = selMesKey > mesAtualKey;
+  const isPast     = selMesKey < mesAtualKey;
 
-  // Demonstrativo resumido
-  const dedDep=ndep*DEP_DEDUCAO;
-  document.getElementById('dash-demonstrativo').innerHTML=`
-    <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)">
-      <span style="color:var(--text2)">Salário bruto</span><span class="mono v-blue">${R(bruto)}</span>
-    </div>
-    ${regime!=='mei'?`<div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)">
-      <span style="color:var(--text2)">${regime==='servidor'?'RPPS':'INSS'}</span><span class="mono v-red">− ${R(inss)}</span>
-    </div>
-    ${ndep>0?`<div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)">
-      <span style="color:var(--text2)">Ded. ${ndep} dependente${ndep!==1?'s':''}</span><span class="mono" style="color:var(--purple)">(− ${R(dedDep)})</span>
-    </div>`:''}
-    <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)">
-      <span style="color:var(--text2)">IRRF</span><span class="mono" style="color:${irrf>0?'var(--red)':'var(--green)'}">${irrf>0?'− '+R(irrf):'Isento'}</span>
-    </div>`:''}
-    ${totalBen>0?`<div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)">
-      <span style="color:var(--text2)">Benefícios</span><span class="mono v-amber">+ ${R(totalBen)}</span>
-    </div>`:''}
-    ${totalRE>0?`<div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)">
-      <span style="color:var(--text2)">💸 Renda extra (mês)</span><span class="mono" style="color:var(--teal)">+ ${R(totalRE)}</span>
-    </div>`:''}
-    <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:2px solid var(--border2);font-weight:600">
-      <span>Renda líquida total</span><span class="mono v-green">${R(renda)}</span>
-    </div>
-    <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)">
-      <span style="color:var(--text2)">Despesas fixas</span><span class="mono v-red">− ${R(totalDesp)}</span>
-    </div>
-    ${lotesMesAtual>0?`
-    <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)">
-      <span style="color:var(--text2)">🏡 Lotes — ${
-        (getEntradaLoteMes(LOTE07,mesAtualKey)||getEntradaLoteMes(LOTE15,mesAtualKey)) && (isLoteMensal(LOTE07,mesAtualKey)||isLoteMensal(LOTE15,mesAtualKey))
-          ? 'entradas + mensais'
-          : (getEntradaLoteMes(LOTE07,mesAtualKey)||getEntradaLoteMes(LOTE15,mesAtualKey))
-            ? 'parcelas de entrada'
-            : 'mensalidades'
-      }</span><span class="mono" style="color:var(--purple)">− ${R(lotesMesAtual)}</span>
-    </div>`:''}
-    <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:2px solid var(--border2);font-weight:600">
-      <span>Total desembolsado</span><span class="mono v-red">− ${R(totalDesp+lotesMesAtual)}</span>
-    </div>
-    <div style="display:flex;justify-content:space-between;padding:8px 0;font-weight:700;font-size:14px">
-      <span>Saldo final</span><span class="mono ${renda-(totalDesp+lotesMesAtual)>=0?'v-green':'v-red'}">${R(renda-(totalDesp+lotesMesAtual))}</span>
-    </div>`;
+  // ── MODO MÊS ──────────────────────────────────────────────────
+  if(modo === 'mes'){
+    const faturasMes = lancamentos.filter(l=>l.mes===selMesKey).reduce((s,l)=>s+l.val,0);
+    const reembMes   = lancamentos.filter(l=>l.mes===selMesKey&&(l.reimb||0)>0).reduce((s,l)=>s+(l.reimb||0),0);
+    const avulsosMes = (compromissos[selMesKey]||[]).reduce((s,c)=>s+c.val,0);
+    const customMes  = itensPlanejamento.reduce((s,it)=>s+getValItemPlano(it,selMesKey),0);
+    const totalPrevistoMes = totalDespFixas + lotesSelMes + faturasMes + avulsosMes + customMes;
+    const saldoMes   = renda - (totalPrevistoMes - reembMes);
+    const pct        = renda > 0 ? ((totalPrevistoMes - reembMes) / renda * 100).toFixed(1) : '0';
 
-  // Gráfico renda vs despesas
-  if(dashChart)dashChart.destroy();
-  const cats={};
-  despesas.forEach(d=>{cats[d.cat]=(cats[d.cat]||0)+d.val;});
-  if(lotesMesAtual>0) cats['🏡 Lotes']=(cats['🏡 Lotes']||0)+lotesMesAtual;
-  const catKeys=Object.keys(cats);
-  const catVals=Object.values(cats);
-  const saldoFinal = renda-(totalDesp+lotesMesAtual);
-  dashChart=new Chart(document.getElementById('dash-chart'),{
-    type:'doughnut',
-    data:{
-      labels:['Saldo livre',...catKeys],
-      datasets:[{
-        data:[Math.max(0,saldoFinal),...catVals],
+    // Pago/pendente no mês selecionado
+    const gruposMes = getGruposDesembolso(selMesKey);
+    let pagoMesSel=0, pendMesSel=0;
+    gruposMes.forEach(g=>{
+      g.itens.forEach(it=>{
+        const st = getStatusItem(selMesKey, g.id, it.desc);
+        const ef = st.status==='pago' ? it.val : st.status==='parcial' ? (st.pago||0) : 0;
+        pagoMesSel  += ef;
+        pendMesSel  += (it.val - ef);
+      });
+    });
+    const stCart = getStatusItem(selMesKey,'cartoes','Fatura total');
+    const cartPago = stCart.status==='pago' ? faturasMes : stCart.status==='parcial' ? (stCart.pago||0) : 0;
+    pagoMesSel += cartPago;
+    pendMesSel += faturasMes - cartPago;
+
+    // Rótulo do período
+    const periodoLabel = isMesAtual ? 'este mês' : isPast ? `em ${getMesLabel(selMesKey)}` : `em ${getMesLabel(selMesKey)} (futuro)`;
+
+    // Cards overview
+    document.getElementById('dash-overview').innerHTML=`
+      <div class="ov-card blue">
+        <div class="ov-icon">💼</div>
+        <div class="ov-label">Renda total</div>
+        <div class="ov-val v-blue">${R(renda)}</div>
+        <div class="ov-sub">Líq. ${R(liquido)} + benef. ${R(totalBen)}${totalRE>0?' + extra '+R(totalRE):''}</div>
+      </div>
+      <div class="ov-card red">
+        <div class="ov-icon">📤</div>
+        <div class="ov-label">Previsto ${periodoLabel}</div>
+        <div class="ov-val v-red">${R(totalPrevistoMes)}</div>
+        <div class="ov-sub">${pct}% da renda${reembMes>0?' · ↩ '+R(reembMes)+' reimb.':''}</div>
+      </div>
+      <div class="ov-card ${saldoMes>=0?'green':'red'}">
+        <div class="ov-icon">${saldoMes>=0?'✅':'⚠️'}</div>
+        <div class="ov-label">Saldo ${periodoLabel}</div>
+        <div class="ov-val ${saldoMes>=0?'v-green':'v-red'}">${R(saldoMes)}</div>
+        <div class="ov-sub">${saldoMes>=0?'Margem livre':'Déficit — atenção!'}</div>
+      </div>
+      <div class="ov-card amber">
+        <div class="ov-icon">✅</div>
+        <div class="ov-label">Pago ${periodoLabel}</div>
+        <div class="ov-val v-green">${R(pagoMesSel)}</div>
+        <div class="ov-sub">⏳ Pendente: ${R(Math.max(0,pendMesSel))}</div>
+      </div>
+      <div class="ov-card amber">
+        <div class="ov-icon">🏡</div>
+        <div class="ov-label">Lotes — acumulado pago</div>
+        <div class="ov-val v-purple">${R(tr.acumLotes)}</div>
+        <div class="ov-sub">${periodoLabel}: ${R(lotesSelMes)} · ${pctLotes}% quitado</div>
+      </div>
+      ${tr.acumCartoes>0?`<div class="ov-card blue">
+        <div class="ov-icon">💳</div>
+        <div class="ov-label">Cartões — acumulado pago</div>
+        <div class="ov-val v-red">${R(tr.acumCartoes)}</div>
+        <div class="ov-sub">${periodoLabel}: ${R(faturasMes)}</div>
+      </div>`:''}
+      ${totalRE>0?`<div class="ov-card green">
+        <div class="ov-icon">💸</div>
+        <div class="ov-label">Renda extra (mês)</div>
+        <div class="ov-val v-teal">${R(totalRE)}</div>
+        <div class="ov-sub">${rendaExtra.filter(r=>r.mes===selMesKey).length} entrada(s)</div>
+      </div>`:''}`;
+
+    // Demonstrativo mensal
+    const dedDep = ndep * DEP_DEDUCAO;
+    document.getElementById('dash-demost-title').textContent = `Demonstrativo — ${getMesLabel(selMesKey)}`;
+    document.getElementById('dash-demonstrativo').innerHTML=`
+      <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)">
+        <span style="color:var(--text2)">Salário bruto</span><span class="mono v-blue">${R(bruto)}</span>
+      </div>
+      ${regime!=='mei'?`<div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)">
+        <span style="color:var(--text2)">${regime==='servidor'?'RPPS':'INSS'}</span><span class="mono v-red">− ${R(inss)}</span>
+      </div>
+      ${ndep>0?`<div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)">
+        <span style="color:var(--text2)">Ded. dependentes</span><span class="mono" style="color:var(--purple)">(− ${R(ndep*DEP_DEDUCAO)})</span>
+      </div>`:''}
+      <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)">
+        <span style="color:var(--text2)">IRRF</span><span class="mono" style="color:${irrf>0?'var(--red)':'var(--green)'}">${irrf>0?'− '+R(irrf):'Isento'}</span>
+      </div>`:''}
+      ${totalBen>0?`<div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)">
+        <span style="color:var(--text2)">Benefícios</span><span class="mono v-amber">+ ${R(totalBen)}</span>
+      </div>`:''}
+      <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:2px solid var(--border2);font-weight:600">
+        <span>Renda líquida</span><span class="mono v-green">${R(renda)}</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)">
+        <span style="color:var(--text2)">Despesas fixas</span><span class="mono v-red">− ${R(totalDespFixas)}</span>
+      </div>
+      ${lotesSelMes>0?`<div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)">
+        <span style="color:var(--text2)">🏡 Lotes</span><span class="mono" style="color:var(--purple)">− ${R(lotesSelMes)}</span>
+      </div>`:''}
+      ${faturasMes>0?`<div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)">
+        <span style="color:var(--text2)">💳 Cartões</span><span class="mono v-red">− ${R(faturasMes)}</span>
+      </div>`:''}
+      ${avulsosMes>0?`<div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)">
+        <span style="color:var(--text2)">📝 Avulsos</span><span class="mono v-red">− ${R(avulsosMes)}</span>
+      </div>`:''}
+      ${reembMes>0?`<div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)">
+        <span style="color:var(--green)">↩ Reembolsos</span><span class="mono v-green">+ ${R(reembMes)}</span>
+      </div>`:''}
+      <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:2px solid var(--border2);font-weight:600">
+        <span>Total previsto</span><span class="mono v-red">− ${R(totalPrevistoMes - reembMes)}</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)">
+        <span style="color:var(--green)">✅ Pago</span><span class="mono v-green">${R(pagoMesSel)}</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:8px 0;font-weight:700;font-size:14px">
+        <span>Saldo previsto</span><span class="mono ${saldoMes>=0?'v-green':'v-red'}">${R(saldoMes)}</span>
+      </div>`;
+
+    // Gráfico
+    if(dashChart) dashChart.destroy();
+    const cats={};
+    despesas.forEach(d=>{ cats[d.cat]=(cats[d.cat]||0)+d.val; });
+    if(lotesSelMes>0) cats['🏡 Lotes']=(cats['🏡 Lotes']||0)+lotesSelMes;
+    if(faturasMes>0)  cats['💳 Cartões']=(cats['💳 Cartões']||0)+faturasMes;
+    if(avulsosMes>0)  cats['📝 Avulsos']=(cats['📝 Avulsos']||0)+avulsosMes;
+    const catKeys=Object.keys(cats), catVals=Object.values(cats);
+    dashChart=new Chart(document.getElementById('dash-chart'),{
+      type:'doughnut',
+      data:{labels:['Saldo livre',...catKeys],datasets:[{
+        data:[Math.max(0,saldoMes),...catVals],
         backgroundColor:['#3ecf8e',...catKeys.map((_,i)=>PALETA[(i+1)%PALETA.length])],
         borderWidth:0,hoverOffset:6
-      }]
-    },
-    options:{responsive:true,maintainAspectRatio:false,cutout:'60%',
-      plugins:{legend:{display:true,position:'right',labels:{color:'#8b92a8',font:{size:11},padding:8,boxWidth:12}},
-      tooltip:{callbacks:{label:c=>` ${c.label}: ${R(c.raw)}`}}}}
-  });
+      }]},
+      options:{responsive:true,maintainAspectRatio:false,cutout:'60%',
+        plugins:{legend:{display:true,position:'right',labels:{color:'#8b92a8',font:{size:11},padding:8,boxWidth:12}},
+        tooltip:{callbacks:{label:c=>` ${c.label}: ${R(c.raw)}`}}}}
+    });
 
-  // Compromissos do mês atual
-  const mesKey=getMesKey(hoje.getFullYear(),hoje.getMonth());
-  const arrMes=compromissos[mesKey]||[];
-  const pendMes=arrMes.filter(c=>c.status==='pendente');
-  document.getElementById('dash-compromissos').innerHTML=`
-    ${pendMes.length===0?`<div class="box-g">✅ Nenhum compromisso pendente no mês atual</div>`
-    :`<div class="box-r" style="margin-bottom:10px">⏳ ${pendMes.length} item${pendMes.length!==1?'s':''} pendente${pendMes.length!==1?'s':''} — ${R(pendMes.reduce((s,c)=>s+c.val,0))}</div>`}
-    ${arrMes.map(c=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--border);font-size:13px">
-      <div style="display:flex;align-items:center;gap:8px">
-        <div class="status-dot ${c.status==='pago'?'dot-pago':c.status==='parcial'?'dot-parc':'dot-pend'}"></div>
-        <span>${c.desc}</span>
+    // Compromissos
+    document.getElementById('dash-comp-title').textContent = `Compromissos — ${getMesLabel(selMesKey)}`;
+    const gruposMesDisp = getGruposDesembolso(selMesKey);
+    const itensPend=[];
+    gruposMesDisp.forEach(g=>{
+      g.itens.forEach(it=>{
+        const st=getStatusItem(selMesKey,g.id,it.desc);
+        if(st.status!=='pago') itensPend.push({...it,grupo:g.nome,st});
+      });
+    });
+    document.getElementById('dash-compromissos').innerHTML=`
+      ${itensPend.length===0
+        ?`<div class="box-g">✅ Tudo pago ${periodoLabel}!</div>`
+        :`<div class="box-r" style="margin-bottom:10px">⏳ ${itensPend.length} item${itensPend.length!==1?'s':''} pendente${itensPend.length!==1?'s':''} — ${R(pendMesSel)}</div>`}
+      ${itensPend.slice(0,7).map(it=>`
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--border);font-size:13px">
+          <div style="display:flex;align-items:center;gap:8px">
+            <div class="status-dot ${it.st.status==='parcial'?'dot-parc':'dot-pend'}"></div>
+            <div><div>${it.desc}</div><div style="font-size:11px;color:var(--text3)">${it.grupo}</div></div>
+          </div>
+          <span class="mono" style="color:var(--red)">${R(it.val)}</span>
+        </div>`).join('')}
+      ${itensPend.length>7?`<div style="font-size:11px;color:var(--text3);padding:6px 0">+ ${itensPend.length-7} item(s) — veja Mês a Mês</div>`:''}
+      <div style="margin-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:12px">
+        <div style="padding:8px;background:var(--bg4);border-radius:8px;display:flex;justify-content:space-between">
+          <span style="color:var(--text2)">Fixas</span><span class="mono">${R(totalDespFixas)}</span>
+        </div>
+        ${faturasMes>0?`<div style="padding:8px;background:var(--bg4);border-radius:8px;display:flex;justify-content:space-between">
+          <span style="color:var(--text2)">Cartões</span><span class="mono v-red">${R(faturasMes)}</span>
+        </div>`:''}
+        ${lotesSelMes>0?`<div style="padding:8px;background:var(--bg4);border-radius:8px;display:flex;justify-content:space-between">
+          <span style="color:var(--text2)">Lotes</span><span class="mono" style="color:var(--purple)">${R(lotesSelMes)}</span>
+        </div>`:''}
+        <div style="padding:8px;background:rgba(62,207,142,0.08);border:1px solid rgba(62,207,142,0.2);border-radius:8px;display:flex;justify-content:space-between">
+          <span style="color:var(--green)">✅ Pago</span><span class="mono v-green">${R(pagoMesSel)}</span>
+        </div>
+      </div>`;
+
+    // Saúde financeira
+    const score=calcScore(saldoMes,renda,totalPrevistoMes-reembMes,pct);
+    document.getElementById('dash-saude').innerHTML=`
+      <div style="text-align:center;margin-bottom:1rem">
+        <div style="font-size:48px;margin-bottom:4px">${score.emoji}</div>
+        <div style="font-size:16px;font-weight:700;color:${score.cor}">${score.label}</div>
+        <div style="font-size:12px;color:var(--text2);margin-top:4px">${score.sub}</div>
       </div>
-      <span class="mono" style="color:var(--red)">${R(c.val)}</span>
-    </div>`).join('')}
-    ${arrMes.length===0?`<p style="color:var(--text3);font-size:12px;margin-top:8px">Acesse a aba "Mês a mês" para lançar compromissos deste mês.</p>`:''}
-    <div style="margin-top:10px;padding:8px;background:var(--bg4);border-radius:8px;font-size:12px;display:flex;justify-content:space-between">
-      <span style="color:var(--text2)">Despesas fixas (mês)</span>
-      <span class="mono">${R(totalDesp)}</span>
-    </div>`;
+      ${score.itens.map(it=>`<div class="tip" style="padding:8px 0">
+        <div class="tip-icon" style="background:${it.bg};color:${it.c}">${it.i}</div>
+        <div style="font-size:12px;color:var(--text2)">${it.t}</div>
+      </div>`).join('')}`;
 
-  // Saúde financeira
-  const score=calcScore(saldo,renda,totalDesp,pct);
-  document.getElementById('dash-saude').innerHTML=`
-    <div style="text-align:center;margin-bottom:1rem">
-      <div style="font-size:48px;margin-bottom:4px">${score.emoji}</div>
-      <div style="font-size:16px;font-weight:700;color:${score.cor}">${score.label}</div>
-      <div style="font-size:12px;color:var(--text2);margin-top:4px">${score.sub}</div>
-    </div>
-    ${score.itens.map(it=>`<div class="tip" style="padding:8px 0">
-      <div class="tip-icon" style="background:${it.bg};color:${it.c}">${it.i}</div>
-      <div style="font-size:12px;color:var(--text2)">${it.t}</div>
-    </div>`).join('')}`;
+  // ── MODO ACUMULADO ────────────────────────────────────────────
+  } else {
+    // Acumulado = desde março/2026 até o mês selecionado
+    const inicioAcum = '2026-03';
+    // Contar meses entre inicio e selMesKey
+    const [iy,im]=inicioAcum.split('-').map(Number);
+    const [sy,sm]=selMesKey.split('-').map(Number);
+    const nMesesAcum = (sy-iy)*12+(sm-im)+1;
+
+    // Renda acumulada (renda × nMeses)
+    const rendaAcum = renda * nMesesAcum;
+
+    // Despesas fixas acumuladas
+    const despAcum = totalDespFixas * nMesesAcum;
+
+    // Cartões acumulados (todos os lançamentos até selMesKey)
+    const cartoesAcum = lancamentos.filter(l=>l.mes<=selMesKey).reduce((s,l)=>s+l.val,0);
+    const reembAcum   = lancamentos.filter(l=>l.mes<=selMesKey&&(l.reimb||0)>0).reduce((s,l)=>s+(l.reimb||0),0);
+
+    // Lotes acumulados — efetivo real (só o que foi marcado pago/parcial, qualquer mês)
+    const lotesAcum = calcLotesEfetivoGlobal(ipca7, ipca15);
+
+    // Avulsos acumulados
+    const avulsosAcum = Object.entries(compromissos)
+      .filter(([mk])=>mk<=selMesKey)
+      .reduce((s,[,arr])=>s+arr.reduce((ss,c)=>ss+c.val,0),0);
+
+    const totalSaidaAcum = despAcum + lotesAcum + cartoesAcum + avulsosAcum - reembAcum;
+    const saldoAcum = rendaAcum - totalSaidaAcum;
+
+    // Cards
+    document.getElementById('dash-overview').innerHTML=`
+      <div class="ov-card blue">
+        <div class="ov-icon">💼</div>
+        <div class="ov-label">Renda acumulada (${nMesesAcum} meses)</div>
+        <div class="ov-val v-blue">${R(rendaAcum)}</div>
+        <div class="ov-sub">${R(renda)}/mês × ${nMesesAcum} meses</div>
+      </div>
+      <div class="ov-card red">
+        <div class="ov-icon">📤</div>
+        <div class="ov-label">Total desembolsado</div>
+        <div class="ov-val v-red">${R(totalSaidaAcum)}</div>
+        <div class="ov-sub">${rendaAcum>0?((totalSaidaAcum/rendaAcum)*100).toFixed(1):0}% da renda acumulada${reembAcum>0?' · ↩ '+R(reembAcum)+' reimb.':''}</div>
+      </div>
+      <div class="ov-card ${saldoAcum>=0?'green':'red'}">
+        <div class="ov-icon">${saldoAcum>=0?'✅':'⚠️'}</div>
+        <div class="ov-label">Saldo acumulado</div>
+        <div class="ov-val ${saldoAcum>=0?'v-green':'v-red'}">${R(saldoAcum)}</div>
+        <div class="ov-sub">${saldoAcum>=0?'Renda superou gastos':'Gastos superaram renda'}</div>
+      </div>
+      <div class="ov-card amber">
+        <div class="ov-icon">✅</div>
+        <div class="ov-label">Efetivamente pago</div>
+        <div class="ov-val v-green">${R(tr.acumTotal)}</div>
+        <div class="ov-sub">Registrado como pago no sistema</div>
+      </div>
+      <div class="ov-card amber">
+        <div class="ov-icon">🏡</div>
+        <div class="ov-label">Lotes — total efetivamente pago</div>
+        <div class="ov-val v-purple">${R(lotesAcum)}</div>
+        <div class="ov-sub">${pctLotes}% das entradas quitadas · L07+L15</div>
+      </div>
+      <div class="ov-card blue">
+        <div class="ov-icon">💳</div>
+        <div class="ov-label">Cartões — total previsto</div>
+        <div class="ov-val v-red">${R(cartoesAcum)}</div>
+        <div class="ov-sub">Pago confirmado: ${R(tr.acumCartoes)}</div>
+      </div>
+      <div class="ov-card green">
+        <div class="ov-icon">🏠</div>
+        <div class="ov-label">Despesas fixas acumuladas</div>
+        <div class="ov-val v-blue">${R(despAcum)}</div>
+        <div class="ov-sub">${R(totalDespFixas)}/mês × ${nMesesAcum} meses</div>
+      </div>`;
+
+    // Demonstrativo acumulado
+    document.getElementById('dash-demost-title').textContent = `Acumulado: mar/2026 → ${getMesLabel(selMesKey)}`;
+    document.getElementById('dash-demonstrativo').innerHTML=`
+      <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)">
+        <span style="color:var(--text2)">Renda acumulada (${nMesesAcum}×)</span><span class="mono v-blue">${R(rendaAcum)}</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)">
+        <span style="color:var(--text2)">Despesas fixas</span><span class="mono v-red">− ${R(despAcum)}</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)">
+        <span style="color:var(--text2)">🏡 Lotes (previsto)</span><span class="mono" style="color:var(--purple)">− ${R(lotesAcum)}</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)">
+        <span style="color:var(--text2)">💳 Cartões (previsto)</span><span class="mono v-red">− ${R(cartoesAcum)}</span>
+      </div>
+      ${avulsosAcum>0?`<div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)">
+        <span style="color:var(--text2)">📝 Avulsos</span><span class="mono v-red">− ${R(avulsosAcum)}</span>
+      </div>`:''}
+      ${reembAcum>0?`<div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)">
+        <span style="color:var(--green)">↩ Reembolsos</span><span class="mono v-green">+ ${R(reembAcum)}</span>
+      </div>`:''}
+      <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:2px solid var(--border2);font-weight:600">
+        <span>Total saída (previsto)</span><span class="mono v-red">− ${R(totalSaidaAcum)}</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)">
+        <span style="color:var(--green)">✅ Pago confirmado</span><span class="mono v-green">${R(tr.acumTotal)}</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:8px 0;font-weight:700;font-size:14px">
+        <span>Saldo acumulado</span><span class="mono ${saldoAcum>=0?'v-green':'v-red'}">${R(saldoAcum)}</span>
+      </div>`;
+
+    // Gráfico acumulado
+    if(dashChart) dashChart.destroy();
+    const cats2={
+      'Fixas': despAcum,
+      '🏡 Lotes': lotesAcum,
+      '💳 Cartões': cartoesAcum,
+    };
+    if(avulsosAcum>0) cats2['📝 Avulsos']=avulsosAcum;
+    const catK2=Object.keys(cats2), catV2=Object.values(cats2);
+    dashChart=new Chart(document.getElementById('dash-chart'),{
+      type:'doughnut',
+      data:{labels:['Saldo acumulado',...catK2],datasets:[{
+        data:[Math.max(0,saldoAcum),...catV2],
+        backgroundColor:['#3ecf8e',...catK2.map((_,i)=>PALETA[(i+1)%PALETA.length])],
+        borderWidth:0,hoverOffset:6
+      }]},
+      options:{responsive:true,maintainAspectRatio:false,cutout:'60%',
+        plugins:{legend:{display:true,position:'right',labels:{color:'#8b92a8',font:{size:11},padding:8,boxWidth:12}},
+        tooltip:{callbacks:{label:c=>` ${c.label}: ${R(c.raw)}`}}}}
+    });
+
+    // Compromissos (avulsos pendentes até o mês sel)
+    document.getElementById('dash-comp-title').textContent = `Acumulado: pagos vs previstos`;
+    document.getElementById('dash-compromissos').innerHTML=`
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:13px">
+        <div style="padding:10px;background:rgba(62,207,142,0.08);border:1px solid rgba(62,207,142,0.2);border-radius:8px;text-align:center">
+          <div style="font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px">Pago confirmado</div>
+          <div style="font-family:'DM Mono',monospace;font-size:18px;font-weight:700;color:var(--green)">${R(tr.acumTotal)}</div>
+        </div>
+        <div style="padding:10px;background:rgba(245,101,101,0.08);border:1px solid rgba(245,101,101,0.2);border-radius:8px;text-align:center">
+          <div style="font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px">Total previsto</div>
+          <div style="font-family:'DM Mono',monospace;font-size:18px;font-weight:700;color:var(--red)">${R(totalSaidaAcum)}</div>
+        </div>
+        <div style="padding:10px;background:rgba(167,139,250,0.08);border:1px solid rgba(167,139,250,0.2);border-radius:8px;text-align:center">
+          <div style="font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px">Lotes confirmados</div>
+          <div style="font-family:'DM Mono',monospace;font-size:18px;font-weight:700;color:var(--purple)">${R(tr.acumLotes)}</div>
+        </div>
+        <div style="padding:10px;background:rgba(91,141,238,0.08);border:1px solid rgba(91,141,238,0.2);border-radius:8px;text-align:center">
+          <div style="font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px">Cartões confirmados</div>
+          <div style="font-family:'DM Mono',monospace;font-size:18px;font-weight:700;color:var(--accent)">${R(tr.acumCartoes)}</div>
+        </div>
+      </div>`;
+
+    // Saúde financeira (baseada no comprometimento acumulado)
+    const pctAcum = rendaAcum>0?((totalSaidaAcum/rendaAcum)*100).toFixed(1):'0';
+    const score=calcScore(saldoAcum,rendaAcum,totalSaidaAcum,pctAcum);
+    document.getElementById('dash-saude').innerHTML=`
+      <div style="text-align:center;margin-bottom:1rem">
+        <div style="font-size:48px;margin-bottom:4px">${score.emoji}</div>
+        <div style="font-size:16px;font-weight:700;color:${score.cor}">${score.label}</div>
+        <div style="font-size:12px;color:var(--text2);margin-top:4px">${score.sub}</div>
+      </div>
+      ${score.itens.map(it=>`<div class="tip" style="padding:8px 0">
+        <div class="tip-icon" style="background:${it.bg};color:${it.c}">${it.i}</div>
+        <div style="font-size:12px;color:var(--text2)">${it.t}</div>
+      </div>`).join('')}`;
+  }
 }
+
 
 function calcScore(saldo,renda,totalDesp,pct){
   const p=parseFloat(pct);
@@ -3248,10 +4661,23 @@ function mktCarregarFoto(input){
   if(!file) return;
   const reader = new FileReader();
   reader.onload = e => {
-    const img = document.getElementById('mkt-preview');
-    img.src = e.target.result;
-    img.style.display = 'block';
-    document.getElementById('mkt-camera-placeholder').style.display = 'none';
+    // Comprime a imagem via canvas para caber no Firestore (max ~80KB)
+    const imgEl = new Image();
+    imgEl.onload = () => {
+      const MAX = 480; // max dimensao em px
+      let w = imgEl.width, h = imgEl.height;
+      if(w > h){ if(w > MAX){ h = Math.round(h * MAX / w); w = MAX; } }
+      else      { if(h > MAX){ w = Math.round(w * MAX / h); h = MAX; } }
+      const canvas = document.createElement('canvas');
+      canvas.width = w; canvas.height = h;
+      canvas.getContext('2d').drawImage(imgEl, 0, 0, w, h);
+      const compressed = canvas.toDataURL('image/jpeg', 0.6);
+      const preview = document.getElementById('mkt-preview');
+      preview.src = compressed;
+      preview.style.display = 'block';
+      document.getElementById('mkt-camera-placeholder').style.display = 'none';
+    };
+    imgEl.src = e.target.result;
   };
   reader.readAsDataURL(file);
 }
@@ -3460,6 +4886,7 @@ async function salvarDados(){
     const dados = {
       statusDesembolsos,
       aportesObra,
+      itensPlanejamento,
       salBruto: document.getElementById('sal-bruto').value,
       salRegime: document.getElementById('sal-regime').value,
       dependentes,
@@ -3477,13 +4904,30 @@ async function salvarDados(){
       _salvoEm: new Date().toISOString(),
       mktHistorico,
     };
-    await DOC_REF.set(dados);
+    // Tenta salvar com fotos; se falhar por tamanho, salva sem fotos
+    try {
+      await DOC_REF.set(dados);
+    } catch(eSized) {
+      // Remove fotos do historico e tenta novamente
+      const dadosSemFoto = {
+        ...dados,
+        mktHistorico: (dados.mktHistorico||[]).map(c => ({
+          ...c,
+          itens: c.itens.map(it => ({ ...it, foto: '' }))
+        }))
+      };
+      await DOC_REF.set(dadosSemFoto);
+      toast.textContent = '⚠️ Salvo sem fotos (doc muito grande)';
+      dot.classList.remove('dirty');
+      setTimeout(() => toast.classList.remove('show'), 3500);
+      return;
+    }
     toast.textContent = '✓ Dados salvos na nuvem!';
     dot.classList.remove('dirty');
     setTimeout(() => toast.classList.remove('show'), 2500);
   } catch(e) {
-    toast.textContent = '❌ Erro ao salvar!';
-    setTimeout(() => toast.classList.remove('show'), 3000);
+    toast.textContent = '❌ Erro ao salvar: ' + (e.message||e);
+    setTimeout(() => toast.classList.remove('show'), 4000);
     console.error('Erro ao salvar:', e);
   }
 }
@@ -3507,6 +4951,7 @@ async function carregarDados(){
     if(dados.compromissos) compromissos = dados.compromissos;
     if(dados.statusDesembolsos) statusDesembolsos = dados.statusDesembolsos;
     if(dados.aportesObra) aportesObra = dados.aportesObra;
+    if(dados.itensPlanejamento) itensPlanejamento = dados.itensPlanejamento;
     if(dados.mktHistorico) mktHistorico = dados.mktHistorico;
     if(dados.ecoAtual && document.getElementById('eco-atual')) document.getElementById('eco-atual').value = dados.ecoAtual;
     if(dados.ecoMeses && document.getElementById('obra-meses')) document.getElementById('obra-meses').value = dados.ecoMeses;
@@ -3541,6 +4986,7 @@ async function init(){
 
   initMeses();
   initMesesCartoes();
+  initDashMesSel();
   renderDependentes();
   calcSalario();
   renderCartoes();
@@ -3559,6 +5005,7 @@ async function init(){
   renderCartoes();
   renderDashboard();
   renderMensal();
+  renderPlanoMesAMes();
   renderRendaExtra();
   mktRenderCarrinho();
   mktRenderHistorico();
